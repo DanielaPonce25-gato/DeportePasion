@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/css/index.css">
+    <link rel="shortcut icon" href="/style/imagen/atletismo.png" type="image/png">
+    <script defer src="/style/js/Coracion-negocio.js"></script>
+    <title>DeportePación</title>
+</head>
+<body>
+
+  <header class="fondo">
+
+    <div class="fixed-box">
+      <ul>
+        <li><img class="icon" src="/style/imagen/atletismo.png"></li>
+        <li>Urbano</li>
+        <li>Running</li>
+        <li>Surf</li>
+        <li>Buceo</li>
+        <li>Natación</li>
+        <li>
+      
+          <button id="abrir-carrito" style="position: relative;">
+            <img src="/style/imagen/carrito.ico" width="30" alt="Carrito">
+            <span id="contador-carrito">0</span>
+          </button>
+
+          <div id="carrito-lista">
+          <ul id="lista-productos"></ul>
+
+          <p id="total">Total: $0.00</p>
+          <button id="btn-operacion">Finalizar Compra</button>
+          <button onclick="cancelar()">Cancelar</button>
+
+
+
+        </li>
+      </ul>
+
+    </div>  
+
+    <header class="ecavesadocompra">
+
+      <div class="mediodepago">
+    
+          <div class="targeta">
+            <img src="/style/imagen/targeta/master.png" >
+          </div>
+    
+          <div class="targeta">
+            <img src="/style/imagen/targeta/naranjatarjeta.jpeg" >
+          </div>
+    
+          <div class="targeta">
+            <img src="/style/imagen/targeta/visa.png" >
+          </div>
+    
+          <div class="targeta">
+            <img src="/style/imagen/targeta/mercadopago.png" >
+          </div>
+    
+      </div>
+    
+    </header>
+
+  </header>
+
+  <!-- Productos generados  -->  
+  <h1>DeportePación</h1>
+  <div id="resultado"></div>
+
+
+</body>
+</html>
