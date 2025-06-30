@@ -1,4 +1,4 @@
-    let descuento = 0.3;
+    let descuento = 0.1;
     let totalGeneral = 0;
     let productosSeleccionados = [];
 
@@ -7,15 +7,15 @@
     let carritoVisible = false;  
 
     let productos = [   //Array de productos generados 
-      { nombre: "Producto 1", precio: 10.99, imagen: "pantalon-nike-negro.jpg" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
+      { nombre: "Pantalon Nike Negro", precio: 10.99, imagen: "pantalon-nike-negro.jpg" },
+      { nombre: "Zapatillas Azul", precio: 5.99, imagen: "adidas-zapazul.jpg" },
+      { nombre: "Patalon corto Negro", precio: 15.49, imagen: "pantalon-cortonegro.jpg" },
+      { nombre: "Termo Azul", precio: 5.99, imagen: "termo-azul.jpg" },
+      { nombre: "Termo Negro", precio: 15.49, imagen: "termo-negro.jpg" },
+      { nombre: "Pantalon Nike Azul", precio: 5.99, imagen: "pantalon-nike-azul.jpg" },
+      { nombre: "Pantalon Nike Gris", precio: 15.49, imagen: "pantalon-nike-gris.jpg" },
+      { nombre: "Patalon corto Gris", precio: 5.99, imagen: "pantalon-corto-gris.jpg" },
+      { nombre: "Producto 3", precio: 15.49, imagen: "pantalon-corto-azul.jpg" },
       { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
       { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
       { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
