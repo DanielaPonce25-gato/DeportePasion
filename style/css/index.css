@@ -13,7 +13,9 @@
 
 body{
     background: url(/style/imagen/fondo-cuerpo.jpg);
+    width: 100%;
 }
+
 
 .fixed-box {
     position: fixed;
@@ -40,77 +42,108 @@ ul{
     color: rgb(0, 113, 206);
     font-style: oblique;
     font-weight: 800;
-    font-size: 16px;
-    margin-top: 8px;
+    font-size: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }   
 
 li{
     padding-left: 3px;
-    padding-right: 13px;
+    padding-right: 8px;
 }
 
-li button{
+#abrir-carrito{
+    position: relative;
+    bottom: 8px;
     width: 40px;
     height: 40px;
-    padding-top: 9%;
+    padding-top: 7px;
+    padding-bottom: 10px;
     border-color:  rgb(143, 213, 248);
-    font-size: 13px;
-    font-weight: 800;
-    color: rgb(0, 3, 5) ;
 }
 
 .imgcarrito{
-    width: 40%;
-    height: 30%;
+    width: 38px;
+    height: 30px;
 }  
-
 
 #carrito-lista {
     display: none;
+    position: absolute; 
     border: 1px solid #ccc;
-    margin-right: 10%;
+    left: 33%; 
     padding: 10px;
-    width: 170px;
+    width: 300px;
+    height: auto;
     background-color: #f9f9f9;
-    margin-top: 30px;
+    margin-top: 100px;
 }
 
 #carrito-lista ul {
-    
+    display: flow-root;
+    text-align: center;
     padding: 0;
 }
 
 #carrito-lista li {
     padding-left: 5px;
     padding-right: 3px;
-    line-height: 18px;
-	text-align: center;
-    border-bottom: 1px solid #ddd;
+    justify-content: space-around;
+    font-size: 20px;
+    line-height: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #8e8a8a;
+}
+
+#total{
+    font-size: 24px;
+    font-weight: bold;
 }
 
 #contador-carrito {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -3px;
+    right: -4px;
     background-color: #e91e63;
     color: white;
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 11px;
+    padding-top: 3px;
     border-radius: 50%;
     font-weight: bold;
     display: inline-block;
     align-items: center;
     min-width: 8px;
-    height: 6px;
+    height: 8px;
 }
 
+.botoncarito{
+
+    width: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 8px;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(0, 3, 5);
+} 
+
+
+#lista-productos {
+    list-style: none;
+    padding: 0;
+}
 
 /* medio de pago */
 
 .ecavesadocompra {
     position: fixed;
-    top: 12%;
+    width: max-content;
+    top: 8%;
     background-color: rgb(127, 255, 212);
     padding: 0px;
     width: 100%;
@@ -120,19 +153,19 @@ li button{
 .mediodepago {
     display: flex;
     justify-content: space-between;
-    margin-right: 40px;
+    margin-right: 50px;
     margin-left: 75px;
 }
 
 .targeta {
-    margin-top: 6px;
+    margin-top: 5px;
     margin-bottom: 6px;
     display: flex;
 }
 
 .targeta img {
 
-    width: 50%;
+    width: 53%;
     height: 87%;
 }
 
@@ -140,16 +173,14 @@ li button{
 
 .descuento {
     position: fixed;
-    top: 23%;
+    width: max-content;
+    top: 16%;
     background-color: rgba(0, 14, 207, 0.556);
-    font-size: 12px;
+    color: azure;
+    font-size: 13px;
     width: 100%;
-    height: 47px;
+    height: 50px;
 }
-
-
-/* productos generados */
-
 
 h1{
     text-align: center;
@@ -157,36 +188,40 @@ h1{
     margin-bottom: 5%;
 }
 
+/* productos generados */
 
 .producto {
     border: 1px solid #292626;
     border-radius: 2%;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    margin-left: 10%;
+    padding-left: 0px;
+    padding-right: 2px;
+    padding-bottom: 15px;
+    margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 30px;
-    width: 200px;
+    width: 215px;
 }
 
 .producto h2{
-    font-size: 22px;
+    font-size: 23px;
+    text-align: center;
 }
 
 .producto p{
-    font-size: 17px;
+    font-size: 18px;
+    padding-left: 5%;
 }
 
 .producto button{
     margin-left: 18%;
     font-weight: 700;
+    margin-top: 10px;
     width: 130px;
     height: 30px;
 }
 
 .producto img {
-    width: 58%;
+    width: 63%;
     height: 60%;
     margin-left: 20%;
 }
@@ -199,7 +234,693 @@ h1{
 
 }
 
-#total {
-    font-size: 18px;
+#pie{
+    display: flex;
+    width:100%;
+    height: max-content;
+}
+
+
+@media (min-width: 330px) and (max-width: 360px) {
+
+    body{
+        background: url(/style/imagen/fondo-cuerpo.jpg);
+        width: 153%;
+    }
+
+.icon{
+    width: 50px;
+    height: 30px;
+
+}
+
+
+ul{
+    padding: 3px;
+    font-weight: 900;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}   
+
+li{
+    padding-left: 1px;
+    padding-right: 3px;
+}
+
+#abrir-carrito{
+    position: relative;
+    bottom: 8px;
+    width: 40px;
+    height: 40px;
+    padding-top: 4px;
+    padding-bottom: 10px;
+    border-color:  rgb(143, 213, 248);
+ 
+}
+
+.imgcarrito{
+    width: 38px;
+    height: 30px;
+}  
+
+#carrito-lista {
+    display: none;
+    position: absolute; 
+    border: 1px solid #ccc;
+    left: 33%; 
+    padding: 10px;
+    width: 300px;
+    height: auto;
+    background-color: #f9f9f9;
+    margin-top: 100px;
+}
+
+#carrito-lista ul {
+    display: flow-root;
+    text-align: center;
+    padding: 0;
+}
+
+#carrito-lista li {
+    padding-left: 5px;
+    padding-right: 3px;
+    justify-content: space-around;
+    font-size: 23px;
+    line-height: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #8e8a8a;
+}
+
+#total{
+    font-size: 25px;
     font-weight: bold;
 }
+
+#contador-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e91e63;
+    color: white;
+    font-size: 18px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: inline-block;
+    align-items: center;
+    min-width: 8px;
+    height: 8px;
+}
+
+.botoncarito{
+
+    width: max-content;
+    padding-bottom: 45px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 900;
+    color: rgb(0, 3, 5);
+} 
+
+
+/* medio de pago */
+
+.ecavesadocompra {
+    top: 5%;
+    height: 57px;
+}
+
+.mediodepago {
+    margin-right: 45px;
+    margin-left: 70px;
+}
+
+.targeta {
+    margin-top: 8px;
+
+}
+
+.targeta img {
+
+    width: 60%;
+    height: 87%;
+}
+
+/*mensaje descuento*/
+
+.descuento {
+    top: 11%;
+    background-color: rgba(0, 14, 207, 0.556);
+    color: azure;
+    font-size: 12px;
+    width: 100%;
+    height: 47px;
+}
+
+
+/* productos generados */
+
+
+.titulo{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+}
+
+#resultado {
+    display: inline-block;
+    columns: 2;
+    margin-bottom: 20px;
+    margin-left: 3%;
+
+}
+
+
+.producto {
+    margin-left: 3%;
+}
+
+.producto h2{
+    font-size: 22px;
+}
+
+.producto p{
+    font-size: 19px;
+}
+
+.producto button{
+    margin-left: 14%;
+    font-size: 16px;
+    width: 140px;
+    height: 40px;
+}
+
+.producto img {
+    width: 70%;
+    height: 60%;
+    margin-left: 15%;
+}
+
+}
+
+
+@media (min-width: 361px) and (max-width: 499px) {
+
+    body{
+        background: url(/style/imagen/fondo-cuerpo.jpg);
+        width: 153%;
+    }
+
+    .icon{
+        width: 55px;
+        height: 25px;
+
+    }
+
+    ul{
+        font-size: 24px;
+    }   
+
+    #resultado {
+        display: inline-block;
+        columns: 2;
+        margin-bottom: 20px;
+        margin-left: 12%;
+
+    }
+
+    .producto {
+        border: 1px solid #292626;
+        border-radius: 2%;
+        padding-left: 0px;
+        padding-right: 1px;
+        padding-bottom: 15px;
+        margin-left: 2%;
+        margin-right: 8%;
+        margin-bottom: 30px;
+        width: 215px;
+    }
+
+    .producto h2{
+        font-size: 24px;
+    }
+
+    .producto p{
+        font-size: 23px;
+    }
+
+    .producto button{
+        margin-left: 14%;
+        font-size: 18px;
+        width: 150px;
+        height: 50px;
+    }
+
+    .producto img {
+        width: 80%;
+        height: 60%;
+        margin-left: 10%;
+    }
+
+
+    /* medio de pago */
+
+    .ecavesadocompra {
+        position: fixed;
+        width: max-content;
+        top: 5%;
+        background-color: rgb(127, 255, 212);
+        padding: 4px;
+        width: 100%;
+        height: 70px;
+    }
+
+    .targeta img {
+
+        width: 62%;
+        height: 83%;
+    }
+
+    /*mensaje descuento*/
+
+    .descuento {
+        position: fixed;
+        width: max-content;
+        top: 14%;
+        background-color: rgba(0, 14, 207, 0.556);
+        color: azure;
+        font-size: 12px;
+        width: 100%;
+        height: 55px;
+    }
+
+
+}
+
+
+@media (min-width: 501px) and (max-width: 600px) {
+
+iframe{
+        margin-top: 10px;
+        height:200px;
+        width:102%;
+}    
+
+.icon{
+    width: 50px;
+    height: 30px;
+
+}
+
+
+ul{
+    font-size: 22px;
+}   
+
+li{
+    padding-left: 3px;
+    padding-right: 4px;
+}
+
+#abrir-carrito{
+    bottom: 9px;
+    width: 43px;
+    height: 40px;
+    padding-top: 7px;
+    padding-bottom: 12px;
+}
+
+.imgcarrito{
+    width: 40px;
+    height: 30px;
+}  
+
+#carrito-lista li {
+    padding-left: 5px;
+    padding-right: 3px;
+    justify-content: space-around;
+    font-size: 20px;
+    line-height: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #8e8a8a;
+}
+
+#total{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#contador-carrito {
+    font-size: 16px;
+}
+
+/* medio de pago */
+
+.ecavesadocompra {
+    top: 8%;
+    width: 100%;
+    height: 60px;
+}
+
+.mediodepago {
+    margin-right: 40px;
+    margin-left: 65px;
+}
+
+.targeta {
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+.targeta img {
+
+    width: 70%;
+    height: 70%;
+}
+
+/*mensaje descuento*/
+
+.descuento {
+    top: 18%;
+    width: 100%;
+    height: 55px;
+}
+
+h1{
+    text-align: center;
+    font-size: 26px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+/* productos generados */
+
+.titulo{
+    font-size: 30px;
+}
+
+.producto {
+    border: 1px solid #292626;
+    border-radius: 2%;
+    padding-left: 0px;
+    padding-right: 1px;
+    padding-bottom: 15px;
+    margin-left: 8%;
+    margin-right: 4%;
+    margin-bottom: 20px;
+    width: 218px;
+}
+
+.producto h2{
+    font-size: 25px;
+}
+
+.producto p{
+    font-size: 20px;
+    padding-left: 7%;
+}
+
+.producto button{
+    margin-left: 18%;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 130px;
+    height: 30px;
+}
+
+.producto img {
+    width: 68%;
+    height: 60%;
+    margin-left: 17%;
+}
+
+#resultado {
+    display: inline-block;
+    columns: 2;
+    margin-bottom: 20px;
+    margin-left: 2%;
+
+}
+}
+
+
+@media (min-width: 601px) and (max-width: 800px) {
+
+iframe{
+        margin-top: 10px;
+        height:200px;
+        width:102%;
+}
+
+
+.icon{
+    width: 60px;
+    height: 30px;
+
+}
+
+
+ul{
+    font-size: 25px;
+}   
+
+li{
+    padding-left: 2px;
+    padding-right: 3px;
+}
+
+#abrir-carrito{
+    width: 45px;
+}
+
+
+.imgcarrito{
+    width: 43px;
+    height: 30px;
+}  
+
+#carrito-lista li {
+    font-size: 21px;
+}
+
+#total{
+    font-size: 24px;
+}
+
+#contador-carrito {
+    font-size: 17px;
+}
+
+/* medio de pago */
+
+.ecavesadocompra {
+    top: 8%;
+    width: 100%;
+    height: 60px;
+}
+
+.mediodepago {
+    margin-right: 40px;
+    margin-left: 65px;
+}
+
+.targeta {
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.targeta img {
+
+    width: 66%;
+    height: 60%;
+}
+
+/*mensaje descuento*/
+
+.descuento {
+    top: 18%;
+    width: 100%;
+    height: 55px;
+}
+
+h1{
+    text-align: center;
+    font-size: 27px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+/* productos generados */
+
+.titulo{
+    font-size: 37px;
+}
+
+.producto {
+
+    margin-left: 30%;
+}
+
+.producto h2{
+    font-size: 26px;
+}
+
+.producto p{
+    font-size: 21px;
+}
+
+.producto button{
+    margin-left: 18%;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 130px;
+    height: 40px;
+}
+
+.producto img {
+    width: 75%;
+    height: 60%;
+    margin-left: 14%;
+}
+
+#resultado {
+    display: inline-block;
+    columns: 2;
+    margin-bottom: 20px;
+    margin-left: 3%;
+
+}
+}
+
+/* @media (min-width: 801px) and (max-width: 1200px) {
+
+.icon{
+    width: 60px;
+    height: 30px;
+
+}
+
+
+ul{
+    font-size: 25px;
+}   
+
+li{
+    padding-left: 2px;
+    padding-right: 3px;
+}
+
+#abrir-carrito{
+    width: 45px;
+}
+
+
+.imgcarrito{
+    width: 43px;
+    height: 30px;
+}  
+
+#carrito-lista li {
+    font-size: 21px;
+}
+
+#total{
+    font-size: 24px;
+}
+
+#contador-carrito {
+    font-size: 17px;
+}
+
+/* medio de pago *
+
+.ecavesadocompra {
+    top: 8%;
+    width: 100%;
+    height: 60px;
+}
+
+.mediodepago {
+    margin-right: 40px;
+    margin-left: 65px;
+}
+
+.targeta {
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.targeta img {
+
+    width: 66%;
+    height: 60%;
+}
+
+/*mensaje descuento*
+
+.descuento {
+    top: 18%;
+    width: 100%;
+    height: 55px;
+}
+
+h1{
+    text-align: center;
+    font-size: 27px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+/* productos generados *
+
+.titulo{
+    font-size: 37px;
+}
+
+.producto {
+
+    margin-left: 30%;
+}
+
+.producto h2{
+    font-size: 26px;
+}
+
+.producto p{
+    font-size: 21px;
+}
+
+.producto button{
+    margin-left: 18%;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 15px;
+    width: 130px;
+    height: 40px;
+}
+
+.producto img {
+    width: 75%;
+    height: 60%;
+    margin-left: 14%;
+}
+
+#resultado {
+    display: inline-block;
+    columns: 2;
+    margin-bottom: 20px;
+    margin-left: 3%;
+
+}
+} */

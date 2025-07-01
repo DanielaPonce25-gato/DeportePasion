@@ -61,7 +61,7 @@
       productosSeleccionados.forEach(produc => { //forEach recorre Array y ejecuta la función
 
         const item = document.createElement("li"); //Genera un nuevo item a la lista de carriro. 
-        item.textContent = `${produc.nombre} - $${produc.precio}`; 
+        item.innerHTML = `<span>${produc.nombre} - $${produc.precio.toFixed(2)}</span>`;
 
         listaProductos.appendChild(item); //Lo agrega al contenedor de la lista del carrito.
       });
@@ -73,7 +73,7 @@
       productosSeleccionados = [];
       totalGeneral = 0;
       actualizarCarrito();
-      document.getElementById("carrito-lista").style.display = "none";
+      document.getElementById("carrito-lista").style.display = "none" ;
       document.getElementById("contador-carrito").textContent = "0";
       carritoVisible = false; // se cierra el carrito
     }
