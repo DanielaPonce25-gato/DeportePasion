@@ -13,22 +13,104 @@
     let carritoVisible = false;  
 
     let productos = [   //Array de productos generados 
-      { nombre: "Pantalon Nike Negro", precio: 10000.99, imagen: "pantalon-nike-negro.jpg" },
-      { nombre: "Zapatilla Azul", precio: 50000.45, imagen: "adidas-zapazul.jpg" },
-      { nombre: "Patalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg" },
-      { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-azul.jpg"},
-      { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-negro.jpg"},
-      { nombre: "Pantalon Nike Azul", precio: 12000.40, imagen: "pantalon-nike-azul.jpg" },
-      { nombre: "Pantalon Nike Gris", precio: 14000.25, imagen: "pantalon-nike-gris.jpg" },
-      { nombre: "Patalon corto Gris", precio: 8000.17, imagen: "pantalon-corto-gris.jpg" },
-      { nombre: "Zapatilla de correr Negra", precio: 43000.30, imagen: "zapatillas-correr-negra.jpg" },
-      { nombre: "Zapatilla de correr celeste", precio: 52000.30, imagen: "zapatillas-correr-celeste.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "imagen3.jpg" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "imagen3.jpg" }
+      { nombre: "Pantalon Nike Negro", precio: 10000.99, imagen: "pantalon-nike-negro.jpg", stock: 5 },
+      { nombre: "Zapatilla Azul", precio: 50000.45, imagen: "adidas-zapazul.jpg", stock: 3 },
+      { nombre: "Patalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg", stock: 4  },
+      { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-azul.jpg", stock: 6},
+      { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-negro.jpg", stock: 2},
+      { nombre: "Pantalon Nike Azul", precio: 12000.40, imagen: "pantalon-nike-azul.jpg", stock: 5  },
+      { nombre: "Pantalon Nike Gris", precio: 14000.25, imagen: "pantalon-nike-gris.jpg", stock: 3 },
+      { nombre: "Patalon corto Gris", precio: 8000.17, imagen: "pantalon-corto-gris.jpg", stock: 4 },
+      { nombre: "Zapatilla de correr Negra", precio: 43000.30, imagen: "zapatillas-correr-negra.jpg", stock: 2 },
+      { nombre: "Zapatilla de correr celeste", precio: 52000.30, imagen: "zapatillas-correr-celeste.jpg", stock: 1  },
+      { nombre: "Producto 3", precio: 15.49, imagen: "" },
+      { nombre: "Producto 2", precio: 5.99, imagen: "" },
+      { nombre: "Producto 3", precio: 15.49, imagen: "" },
+      { nombre: "Producto 2", precio: 5.99, imagen: "" },
+      { nombre: "Producto 3", precio: 15.49, imagen: "" }
     ];
+
+
+    
+//seguridad de acceso de stock
+
+const codigoEmpleado = "1234"; // código de acceso
+
+function accederComoEmpleado() {
+  const intento = prompt("🔐 Ingrese el código de acceso de empleado:");
+
+  if (intento === codigoEmpleado) {
+    alert("Acceso concedido.");
+    document.getElementById("panel-stock").style.display = "block";  // acceso aceptado
+  } else {
+    alert("Código incorrecto. Acceso denegado.");
+  }
+}
+
+
+
+//Gestion de Stock
+
+function mostrarStockTotal() {
+  const total = productos.reduce((acc, p) => {
+    const stock = isNaN(p.stock) ? 0 : p.stock;  // Verifica si stock es NaN, y en ese caso le asigna 0
+    return acc + stock;
+  }, 0);
+  
+  alert(`Stock total disponible: ${total} unidades`);
+}
+
+function listarStockPorProducto() {
+  let mensaje = "Stock por producto:\n\n";
+  productos.forEach(p => {
+    mensaje += `${p.nombre}: ${p.stock} unidades\n`;
+  });
+  alert(mensaje);
+}
+
+function buscarProductoPorNombre() {
+  const nombre = prompt("Ingrese el nombre del producto a buscar:").toLowerCase();
+  const resultados = productos.filter(p => p.nombre.toLowerCase().includes(nombre));
+
+  if (resultados.length === 0) {
+    alert(" No se encontró ningún producto con ese nombre.");
+    return;
+  }
+
+  let mensaje = "Productos encontrados:\n\n";
+  resultados.forEach(p => {
+    mensaje += `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}\n`;
+  });
+
+  alert(mensaje);
+}
+
+function mostrarProductosAgotados() {
+  const agotados = productos.filter(p => p.stock <= 0);
+  if (agotados.length === 0) {
+    alert("No hay productos agotados.");
+    return;
+  }
+
+  let mensaje = "Productos sin stock:\n\n";
+  agotados.forEach(p => mensaje += `${p.nombre}\n`);
+  alert(mensaje);
+}
+
+function mostrarStockBajo() {
+  const limite = 2;
+  const bajos = productos.filter(p => p.stock > 0 && p.stock <= limite);
+
+  if (bajos.length === 0) {
+    alert("Todos los productos tienen stock suficiente.");
+    return;
+  }
+
+  let mensaje = "Productos con stock bajo (≤ 2):\n\n";
+  bajos.forEach(p => mensaje += ` ${p.nombre}: ${p.stock} unidades\n`);
+  alert(mensaje);
+}
+
 
     function mostrarProductos() { //Funcion de mostrar producto selecionado y el boton agregar al carrito
       let productosHTML = "";
@@ -40,7 +122,9 @@
         <p>Precio: $${producto.precio.toFixed(2)}</p> 
         <img src="./style/imagen/productos/${producto.imagen}" alt="${producto.nombre}" width="100">
         <br>
-        <button onclick="agregarCarrito(${index})">Agregar al carrito</button>
+        <button onclick="agregarCarrito(${index})" ${producto.stock <= 0 ? 'disabled' : ''}>
+          ${producto.stock <= 0 ? 'Sin stock' : 'Agregar al carrito'}
+        </button>
       </div>
       `;
       });
@@ -49,8 +133,18 @@
 
     function agregarCarrito(index) {  //Función de hacer la suma de los productos selecionados e incorporar el descuento
       let producto = productos[index];
+
+      if (producto.stock <= 0) {
+        alert(`No hay stock disponible para: ${producto.nombre}`);
+        return;
+      }
+
+      
+      producto.stock--;  // Descunta una unidad de stock
+
       let precioConDescuento = producto.precio * (1 - descuento);
       totalGeneral += precioConDescuento;
+
       productosSeleccionados.push({ // agregar producto al carrito . push = agregar
         nombre: producto.nombre,
         precio: precioConDescuento
@@ -58,6 +152,8 @@
       alert(`Producto agregado: ${producto.nombre}`); // aviso de que producto agregado
       actualizarCarrito();
       document.getElementById("contador-carrito").textContent = productosSeleccionados.length; // cueta producto  // longitud exacta
+
+      mostrarProductos(); //Muestra el stock disponible
     }
 
     function actualizarCarrito() { // propósito actualizar visualmente el contenido del carrito de compras en la página 
@@ -74,28 +170,114 @@
         listaProductos.appendChild(item); //Lo agrega al contenedor de la lista del carrito. // appendchild para adjuntar elementos a un elemento padre
 
       });
-      document.getElementById("total").textContent = `Total: $${totalGeneral}`; // textContent  acceder y modificar el contenido a texto puro del elemento HTML
+      document.getElementById("total").textContent = `Total: $${totalGeneral.toFixed(2)}`; // textContent  acceder y modificar el contenido a texto puro del elemento HTML
     }
 
     function cancelar() {
       alert("Compra cancelada");
+
+      // Restaurar stock
+      productosSeleccionados.forEach(seleccionado => {  //forEach recorre Array y ejecuta la función
+      let producto = productos.find(p => p.nombre === seleccionado.nombre);
+      if (producto) {
+        producto.stock++;
+      }
+    });
+
       productosSeleccionados = [];
       totalGeneral = 0;
       actualizarCarrito();
       document.getElementById("carrito-lista").style.display = "none" ;
       document.getElementById("contador-carrito").textContent = "0";
       carritoVisible = false; // se cierra el carrito
+
+      mostrarProductos(); // Actualiza stock 
     }
 
     function compra() {
-      alert("¡Compra realizada con éxito!");
+      
+      productosSeleccionados = [];
+      totalGeneral = 0;
+      actualizarCarrito();
+      document.getElementById("carrito-lista").style.display = "none";
+      document.getElementById("contador-carrito").textContent = "0";
+
+      let metodoPago = prompt("Seleccione el método de pago:\n1 - Transferencia Bancaria\n2 - Tarjeta de Crédito");
+
+      switch (metodoPago) {
+        case "1":
+          sessionStorage.setItem("metodoPago", "transferencia");
+          alert(`Has elegido pagar por transferencia bancaria.\n\nCBU: 1234567890123456789012\nAlias: tienda.deportiva.ocean`);
+          finalizarCompra();
+        break;
+
+        case "2":
+          sessionStorage.setItem("metodoPago", "tarjeta");
+          document.getElementById("formulario-tarjeta").style.display = "block";
+        break;
+
+        default:
+          alert("Opción no válida. Se cancela la compra.");
+          return;
+        }
+      }
+
+    function procesarPagoTarjeta() {
+      const numero = document.getElementById("numero-tarjeta").value.trim();
+      const nombre = document.getElementById("nombre-tarjeta").value.trim();
+      const vencimiento = document.getElementById("vencimiento-tarjeta").value;
+      const cvv = document.getElementById("cvv-tarjeta").value.trim();
+
+      if (!numero || !nombre || !vencimiento || !cvv) {
+        alert("Por favor, complete todos los campos.");
+        return;
+      }
+
+      if (numero.length !== 16 || isNaN(numero)) {
+        alert("Número de tarjeta inválido.");
+        return;
+      }
+
+      if (cvv.length !== 3 || isNaN(cvv)) {
+        alert("CVV inválido.");
+        return;
+      }
+
+      sessionStorage.setItem("tarjeta", JSON.stringify({
+        numero,
+        nombre,
+        vencimiento,
+        cvv
+      }));
+
+      alert(`Pago con tarjeta procesado correctamente.`);
+      alert("Compra finalizada con éxito");
+
+      finalizarCompra();
+    }
+
+    function finalizarCompra() {
       productosSeleccionados = [];
       totalGeneral = 0;
       actualizarCarrito();
       document.getElementById("carrito-lista").style.display = "none";
       document.getElementById("contador-carrito").textContent = "0";
       carritoVisible = false; // se cierra el carrito
+      document.getElementById("formulario-tarjeta").style.display = "none";
+      
+      const metodo = sessionStorage.getItem("metodoPago");
+
+      alert(`Compra finalizada con éxito usando ${metodo === "tarjeta" ? "tarjeta de crédito" : "transferencia bancaria"}.`);
+
+      // 🧹 Limpiar toda la sessionStorage
+      sessionStorage.clear();
+
+      mostrarProductos();
+
+      
     }
+
+
 
     let operacion = (op) => { // respuesta
       switch (op) {

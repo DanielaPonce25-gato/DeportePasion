@@ -71,9 +71,55 @@
 
   </header>
 
-  <!-- Productos generados  -->  
+
   <h1 class="titulo">DeportePasión</h1>
+
+  <!-- Formulario de pago con tarjeta (inicialmente oculto) -->
+  <div id="formulario-tarjeta" style="display: none; background-color: #fff; padding: 15px; border: 1px solid #ccc; margin-top: 20px; font-size: 20px;">
+    <h2>Pago con Tarjeta</h2>
+    <label>
+      Número de tarjeta:<br>
+      <input type="text" id="numero-tarjeta" maxlength="16" placeholder="1234 5678 9012 3456" required>
+    </label>
+    <br><br>
+    <label>
+      Nombre en la tarjeta:<br>
+      <input type="text" id="nombre-tarjeta" required>
+    </label>
+    <br><br>
+    <label>
+      Fecha de vencimiento:<br>
+      <input type="month" id="vencimiento-tarjeta" required>
+    </label>
+    <br><br>
+    <label>
+      Código de seguridad (CVV):<br>
+      <input type="text" id="cvv-tarjeta" maxlength="3" required>
+    </label>
+    <br><br>
+    <button onclick="procesarPagoTarjeta()">Confirmar pago</button>
+  </div>
+
+  <!-- Productos generados  -->  
   <div id="resultado"></div>
+
+
+  <!-- operar el stock  -->
+  
+  <div id="gestion-stock" style="margin-top: 20px;">
+    <button onclick="accederComoEmpleado()">🔐 Gestión de Stock (Solo Empleados)</button>
+
+    <div id="panel-stock" style="display: none; margin-top: 10px;">
+      <button onclick="mostrarStockTotal()">Ver stock total</button>
+      <button onclick="listarStockPorProducto()">Ver stock por producto</button>
+      <button onclick="buscarProductoPorNombre()">Buscar producto</button>
+      <button onclick="mostrarProductosAgotados()">Ver productos agotados</button>
+      <button onclick="mostrarStockBajo()">Ver stock bajo</button>
+    </div>
+  </div>
+
+
+
 
 
 <iframe id="pie" src="/views/plantiila/pie_pagina.html" frameborder="0" ></iframe>

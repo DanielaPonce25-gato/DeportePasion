@@ -234,6 +234,8 @@ h1{
 
 }
 
+
+
 #pie{
     display: flex;
     width:100%;
@@ -276,7 +278,7 @@ li{
     padding-top: 4px;
     padding-bottom: 10px;
     border-color:  rgb(143, 213, 248);
- 
+
 }
 
 .imgcarrito{
@@ -339,7 +341,7 @@ li{
 .botoncarito{
 
     width: max-content;
-    padding-bottom: 45px;
+    padding-bottom: 10px;
     padding-left: 3%;
     padding-right: 3%;
     margin-left: 10px;
