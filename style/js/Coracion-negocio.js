@@ -197,7 +197,6 @@ function mostrarStockBajo() {
     function compra() {
       
       productosSeleccionados = [];
-      totalGeneral = 0;
       actualizarCarrito();
       document.getElementById("carrito-lista").style.display = "none";
       document.getElementById("contador-carrito").textContent = "0";
@@ -207,20 +206,24 @@ function mostrarStockBajo() {
       switch (metodoPago) {
         case "1":
           sessionStorage.setItem("metodoPago", "transferencia");
-          alert(`Has elegido pagar por transferencia bancaria.\n\nCBU: 1234567890123456789012\nAlias: tienda.deportiva.ocean`);
+          alert(`Has elegido pagar por transferencia bancaria.\n\nTotal: $${totalGeneral.toFixed(2)}\nCBU: 1234567890123456789012\nAlias: tienda.deportiva.ocean`);
           finalizarCompra();
         break;
 
         case "2":
           sessionStorage.setItem("metodoPago", "tarjeta");
           document.getElementById("formulario-tarjeta").style.display = "block";
+
+          // Muestra el total a pagar
+          document.getElementById("total-tarjeta").textContent = `Total: $${totalGeneral.toFixed(2)}`;
         break;
 
         default:
           alert("Opción no válida. Se cancela la compra.");
           return;
-        }
       }
+      
+    }
 
     function procesarPagoTarjeta() {
       const numero = document.getElementById("numero-tarjeta").value.trim();
@@ -249,6 +252,7 @@ function mostrarStockBajo() {
         vencimiento,
         cvv
       }));
+
 
       alert(`Pago con tarjeta procesado correctamente.`);
       alert("Compra finalizada con éxito");

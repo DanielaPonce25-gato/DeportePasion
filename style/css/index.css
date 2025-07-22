@@ -138,6 +138,8 @@ li{
     padding: 0;
 }
 
+
+
 /* medio de pago */
 
 .ecavesadocompra {
@@ -234,7 +236,57 @@ h1{
 
 }
 
+/* Formulario de pago con tarjeta */
 
+#formulario-tarjeta{
+    display: none; 
+    background-color: #fff;
+    width: 80%; 
+    margin-left: 7%;
+    padding: 15px; 
+    border: 2px solid #7f7d7d; 
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    
+}
+
+#formulario-tarjeta h2{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+    text-decoration: underline;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+#formulario-tarjeta label{
+    color: #292626;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#formulario-tarjeta input{
+    color: #160c68;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#formulario-tarjeta p{
+    color: #080000;
+    font-family: 'Franklin Gothic Medium';
+    margin-top: 4%;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#formulario-tarjeta button{
+    color: #02000b;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 30%;
+    width: max-content;
+    padding: 7px;
+}
 
 #pie{
     display: flex;
@@ -250,187 +302,227 @@ h1{
         width: 153%;
     }
 
-.icon{
-    width: 50px;
-    height: 30px;
+    .icon{
+        width: 50px;
+        height: 30px;
 
-}
-
-
-ul{
-    padding: 3px;
-    font-weight: 900;
-    font-size: 22px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}   
-
-li{
-    padding-left: 1px;
-    padding-right: 3px;
-}
-
-#abrir-carrito{
-    position: relative;
-    bottom: 8px;
-    width: 40px;
-    height: 40px;
-    padding-top: 4px;
-    padding-bottom: 10px;
-    border-color:  rgb(143, 213, 248);
-
-}
-
-.imgcarrito{
-    width: 38px;
-    height: 30px;
-}  
-
-#carrito-lista {
-    display: none;
-    position: absolute; 
-    border: 1px solid #ccc;
-    left: 33%; 
-    padding: 10px;
-    width: 300px;
-    height: auto;
-    background-color: #f9f9f9;
-    margin-top: 100px;
-}
-
-#carrito-lista ul {
-    display: flow-root;
-    text-align: center;
-    padding: 0;
-}
-
-#carrito-lista li {
-    padding-left: 5px;
-    padding-right: 3px;
-    justify-content: space-around;
-    font-size: 23px;
-    line-height: 20px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #8e8a8a;
-}
-
-#total{
-    font-size: 25px;
-    font-weight: bold;
-}
-
-#contador-carrito {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #e91e63;
-    color: white;
-    font-size: 18px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 10px;
-    padding-top: 5px;
-    border-radius: 50%;
-    font-weight: bold;
-    display: inline-block;
-    align-items: center;
-    min-width: 8px;
-    height: 8px;
-}
-
-.botoncarito{
-
-    width: max-content;
-    padding-bottom: 10px;
-    padding-left: 3%;
-    padding-right: 3%;
-    margin-left: 10px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 900;
-    color: rgb(0, 3, 5);
-} 
+    }
 
 
-/* medio de pago */
+    ul{
+        padding: 3px;
+        font-weight: 900;
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }   
 
-.ecavesadocompra {
-    top: 5%;
-    height: 57px;
-}
+    li{
+        padding-left: 1px;
+        padding-right: 3px;
+    }
 
-.mediodepago {
-    margin-right: 45px;
-    margin-left: 70px;
-}
+    #abrir-carrito{
+        position: relative;
+        bottom: 8px;
+        width: 40px;
+        height: 40px;
+        padding-top: 4px;
+        padding-bottom: 10px;
+        border-color:  rgb(143, 213, 248);
 
-.targeta {
-    margin-top: 8px;
+    }
 
-}
+    .imgcarrito{
+        width: 38px;
+        height: 30px;
+    }  
 
-.targeta img {
+    #carrito-lista {
+        display: none;
+        position: absolute; 
+        border: 1px solid #ccc;
+        left: 33%; 
+        padding: 10px;
+        width: 300px;
+        height: auto;
+        background-color: #f9f9f9;
+        margin-top: 100px;
+    }
 
-    width: 60%;
-    height: 87%;
-}
+    #carrito-lista ul {
+        display: flow-root;
+        text-align: center;
+        padding: 0;
+    }
 
-/*mensaje descuento*/
+    #carrito-lista li {
+        padding-left: 5px;
+        padding-right: 3px;
+        justify-content: space-around;
+        font-size: 23px;
+        line-height: 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #8e8a8a;
+    }
 
-.descuento {
-    top: 11%;
-    background-color: rgba(0, 14, 207, 0.556);
-    color: azure;
-    font-size: 12px;
-    width: 100%;
-    height: 47px;
-}
+    #total{
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    #contador-carrito {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #e91e63;
+        color: white;
+        font-size: 18px;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-bottom: 10px;
+        padding-top: 5px;
+        border-radius: 50%;
+        font-weight: bold;
+        display: inline-block;
+        align-items: center;
+        min-width: 8px;
+        height: 8px;
+    }
+
+    .botoncarito{
+        width: max-content;
+        padding-bottom: 10px;
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-left: 10px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 900;
+        color: rgb(0, 3, 5);
+    } 
 
 
-/* productos generados */
+    /* medio de pago */
+
+    .ecavesadocompra {
+        top: 4%;
+        height: 57px;
+    }
+
+    .mediodepago {
+        margin-right: 45px;
+        margin-left: 70px;
+    }
+
+    .targeta {
+        margin-top: 8px;
+    }
+
+    .targeta img {
+        width: 60%;
+        height: 87%;
+    }
 
 
-.titulo{
-    text-align: center;
-    font-size: 40px;
-    margin-top: 2%;
-    margin-bottom: 5%;
-    margin-left: 5%;
-}
+    /*mensaje descuento*/
 
-#resultado {
-    display: inline-block;
-    columns: 2;
-    margin-bottom: 20px;
-    margin-left: 3%;
-
-}
+    .descuento {
+        top: 9%;
+        background-color: rgba(0, 14, 207, 0.556);
+        color: azure;
+        font-size: 12px;
+        width: 100%;
+        height: 47px;
+    }
 
 
-.producto {
-    margin-left: 3%;
-}
+    /* productos generados */
 
-.producto h2{
-    font-size: 22px;
-}
+    .titulo{
+        text-align: center;
+        font-size: 40px;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        margin-left: 5%;
+    }
 
-.producto p{
-    font-size: 19px;
-}
+    #resultado {
+        display: inline-block;
+        columns: 2;
+        margin-bottom: 20px;
+        margin-left: 3%;
 
-.producto button{
-    margin-left: 14%;
-    font-size: 16px;
-    width: 140px;
-    height: 40px;
-}
+    }
 
-.producto img {
-    width: 70%;
-    height: 60%;
-    margin-left: 15%;
-}
+    .producto {
+        margin-left: 3%;
+    }
+
+    .producto h2{
+        font-size: 24px;
+    }
+
+    .producto p{
+        font-size: 20px;
+    }
+
+    .producto button{
+        margin-left: 14%;
+        font-size: 16px;
+        width: 140px;
+        height: 40px;
+    }
+
+    .producto img {
+        width: 70%;
+        height: 60%;
+        margin-left: 15%;
+    }
+
+    /* Formulario de pago con tarjeta */
+
+    #formulario-tarjeta{
+        width: 85%; 
+        margin-left: 4%;
+        padding: 20px; 
+        border: 3px solid #7f7d7d; 
+        margin-top: 30px;
+        margin-bottom: 20px;  
+    }
+
+    #formulario-tarjeta h2{
+        margin-bottom: 18px;
+        font-size: 30px;
+    }
+
+    #formulario-tarjeta label{
+        color: #292626;
+        font-size: 25px;
+    }
+
+    #formulario-tarjeta input{
+        color: #160c68;
+        font-size: 21px;
+    }
+
+    #formulario-tarjeta p{
+        color: #080000;
+        margin-top: 4%;
+        font-size: 28px;
+    }
+
+    #formulario-tarjeta button{
+        color: #02000b;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 5%;
+        margin-left: 30%;
+        width: max-content;
+        padding: 10px;
+    }
+
+
 
 }
 
@@ -499,7 +591,7 @@ li{
     .ecavesadocompra {
         position: fixed;
         width: max-content;
-        top: 5%;
+        top: 4%;
         background-color: rgb(127, 255, 212);
         padding: 4px;
         width: 100%;
@@ -517,12 +609,55 @@ li{
     .descuento {
         position: fixed;
         width: max-content;
-        top: 14%;
+        top: 10%;
         background-color: rgba(0, 14, 207, 0.556);
         color: azure;
         font-size: 12px;
         width: 100%;
         height: 55px;
+    }
+
+    
+    /* Formulario de pago con tarjeta */
+
+    #formulario-tarjeta{
+        width: 85%; 
+        margin-left: 4%;
+        padding: 20px; 
+        border: 3px solid #7f7d7d; 
+        margin-top: 30px;
+        margin-bottom: 20px;  
+    }
+
+    #formulario-tarjeta h2{
+        margin-bottom: 18px;
+        font-size: 30px;
+    }
+
+    #formulario-tarjeta label{
+        color: #292626;
+        font-size: 25px;
+    }
+
+    #formulario-tarjeta input{
+        color: #160c68;
+        font-size: 21px;
+    }
+
+    #formulario-tarjeta p{
+        color: #080000;
+        margin-top: 4%;
+        font-size: 28px;
+    }
+
+    #formulario-tarjeta button{
+        color: #02000b;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 5%;
+        margin-left: 30%;
+        width: max-content;
+        padding: 10px;
     }
 
 
@@ -673,6 +808,40 @@ h1{
     margin-left: 2%;
 
 }
+
+    /* Formulario de pago con tarjeta */
+
+    #formulario-tarjeta{
+        width: 70%; 
+        margin-left: 10%; 
+    }
+
+    #formulario-tarjeta h2{
+        font-size: 26px;
+    }
+
+    #formulario-tarjeta label{
+        font-size: 21px;
+    }
+
+    #formulario-tarjeta input{
+        font-size: 18px;
+    }
+
+    #formulario-tarjeta p{
+        font-size: 25px;
+    }
+
+    #formulario-tarjeta button{
+        font-size: 18px;
+        margin-top: 5%;
+        margin-left: 30%;
+        width: max-content;
+        padding: 8px;
+    }
+
+
+
 }
 
 
@@ -803,6 +972,42 @@ h1{
     margin-left: 3%;
 
 }
+
+    /* Formulario de pago con tarjeta */
+
+    #formulario-tarjeta{
+        width: 70%; 
+        margin-left: 10%; 
+    }
+
+    #formulario-tarjeta h2{
+        font-size: 26px;
+    }
+
+    #formulario-tarjeta label{
+        font-size: 21px;
+    }
+
+    #formulario-tarjeta input{
+        font-size: 18px;
+    }
+
+    #formulario-tarjeta p{
+        font-size: 25px;
+    }
+
+    #formulario-tarjeta button{
+        font-size: 18px;
+        margin-top: 5%;
+        margin-left: 30%;
+        width: max-content;
+        padding: 8px;
+    }
+
+
+
+
+
 }
 
 /* @media (min-width: 801px) and (max-width: 1200px) {

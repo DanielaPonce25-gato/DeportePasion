@@ -74,8 +74,8 @@
 
   <h1 class="titulo">DeportePasión</h1>
 
-  <!-- Formulario de pago con tarjeta (inicialmente oculto) -->
-  <div id="formulario-tarjeta" style="display: none; background-color: #fff; padding: 15px; border: 1px solid #ccc; margin-top: 20px; font-size: 20px;">
+  <!-- Formulario de pago con tarjeta -->
+  <div id="formulario-tarjeta">
     <h2>Pago con Tarjeta</h2>
     <label>
       Número de tarjeta:<br>
@@ -96,10 +96,11 @@
       Código de seguridad (CVV):<br>
       <input type="text" id="cvv-tarjeta" maxlength="3" required>
     </label>
-    <br><br>
+    <p id="total-tarjeta"></p> <!-- total a pagar  -->
     <button onclick="procesarPagoTarjeta()">Confirmar pago</button>
   </div>
 
+  
   <!-- Productos generados  -->  
   <div id="resultado"></div>
 
