@@ -288,6 +288,115 @@ h1{
     padding: 7px;
 }
 
+#gestion-stock{
+    margin-top: 20px;
+}
+
+#panel-stock{
+    margin-top: 30px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.gestion{
+    padding: 2%;
+    margin-left: 20px;
+    font-size: 13px;
+    font-weight: 800;
+
+}
+
+#panel-stock button{
+    padding: 1%;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-family: 'Times New Roman';
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.stocktotal{
+    background-color: rgb(194, 251, 110);
+}
+
+.verproducto{
+    background-color: #ffa8ff;
+}
+
+.buscarproducto{
+    background-color: #035afc7d;
+}
+
+.agotados{
+    background-color: rgba(253, 64, 64, 0.733);
+}
+
+.bajo{
+    background-color: aqua;
+}
+
+.resetear{
+    background-color: rgb(197, 138, 253);
+
+}
+
+
+#buscarProducto{
+    margin-left: 10%;
+    padding: 1%;
+}
+
+#buscar{
+    width: max-content;
+    font-size: 15px;
+    font-weight: 500;
+    margin-right: 7px;
+    background-color: #cdcaca;
+    padding: 4px;
+}
+
+#add{
+    margin-top: 1%;
+    padding: 2px;
+    font-size: 14px;
+    background-color: rgb(248, 248, 207);
+}
+
+h3{
+    text-align: center;
+    font-size: 21px;
+    text-decoration: underline;
+}
+
+
+#busqueda{
+    color: #4e2905;
+    margin-bottom: 8px;
+    font-size: 17px;
+    display: inline-block;
+}
+
+#busqueda li{
+    padding-left: 3px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+}
+
+#lista{
+    display: inline-block;
+    columns: 3;
+    color: #020761;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+#busqueda li img{
+    width: 37px;
+    cursor: pointer;
+}
+
+
+
 #pie{
     display: flex;
     width:100%;
@@ -524,6 +633,28 @@ h1{
 
 
 
+    #formulario-tarjeta button{
+        font-size: 20px;
+    }
+
+    #panel-stock{
+        margin-top: 20px;
+    }
+
+    .gestion{
+        margin-left: 30px;
+        font-size: 16px;
+    }
+
+    #panel-stock button{
+        padding: 2%;
+        margin-bottom: 15px;
+        margin-left: 2px;
+        font-size: 17px;
+    }
+
+
+
 }
 
 
@@ -658,6 +789,27 @@ h1{
         margin-left: 30%;
         width: max-content;
         padding: 10px;
+    }
+
+
+    #formulario-tarjeta button{
+        font-size: 20px;
+    }
+
+    #panel-stock{
+        margin-top: 20px;
+    }
+
+    .gestion{
+        margin-left: 30px;
+        font-size: 16px;
+    }
+
+    #panel-stock button{
+        padding: 2%;
+        margin-bottom: 15px;
+        margin-left: 2px;
+        font-size: 17px;
     }
 
 

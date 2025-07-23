@@ -10,6 +10,8 @@
 </head>
 <body>
 
+   
+
   <header class="fondo">
 
     <div class="fixed-box">
@@ -74,8 +76,29 @@
 
   <h1 class="titulo">DeportePasión</h1>
 
-  <!-- Formulario de pago con tarjeta -->
-  <div id="formulario-tarjeta">
+   <!-- Barra de búsqueda -->
+     
+  <div>
+    <input id="buscarProducto" type="text"  placeholder="Buscar producto" >
+    <button id="buscar">Buscar</button>
+    <button id="add">Agrega a lita de busquedas</button>
+  </div>
+
+  <!-- activa la búsqueda -->
+  <div class="bg-danger d-none">
+  </div>
+
+  <!-- Lista de productos encontrados -->
+  <ul id="busqueda"></ul>
+
+  <!-- Lista buscador -->
+  <h3>lista de busqueda</h3>
+  <ul id="lista"></ul>
+
+
+
+    <!-- Formulario de pago con tarjeta -->
+  <div id="formulario-tarjeta"style="display: none;">
     <h2>Pago con Tarjeta</h2>
     <label>
       Número de tarjeta:<br>
@@ -100,28 +123,25 @@
     <button onclick="procesarPagoTarjeta()">Confirmar pago</button>
   </div>
 
-  
+
   <!-- Productos generados  -->  
   <div id="resultado"></div>
 
-
   <!-- operar el stock  -->
   
-  <div id="gestion-stock" style="margin-top: 20px;">
-    <button onclick="accederComoEmpleado()">🔐 Gestión de Stock (Solo Empleados)</button>
+  <div id="gestion-stock">
+    <button class="gestion" onclick="accederComoEmpleado()">🔐 Gestión de Stock (Solo Empleados)</button>
 
-    <div id="panel-stock" style="display: none; margin-top: 10px;">
-      <button onclick="mostrarStockTotal()">Ver stock total</button>
-      <button onclick="listarStockPorProducto()">Ver stock por producto</button>
-      <button onclick="buscarProductoPorNombre()">Buscar producto</button>
-      <button onclick="mostrarProductosAgotados()">Ver productos agotados</button>
-      <button onclick="mostrarStockBajo()">Ver stock bajo</button>
-      <button onclick="resetearStock()">Resetear Stock</button>
+
+    <div id="panel-stock" style="display: none;">
+      <button class="stocktotal" onclick="mostrarStockTotal()">Ver stock total</button>
+      <button class="verproducto" onclick="listarStockPorProducto()">Ver stock por producto</button>
+      <button class="buscarproducto" onclick="buscarProductoPorNombre()">Buscar producto</button>
+      <button class="agotados" onclick="mostrarProductosAgotados()">Ver productos agotados</button>
+      <button class="bajo" onclick="mostrarStockBajo()">Ver stock bajo</button>
+      <button class="resetear" onclick="resetearStock()">Resetear Stock</button>
     </div>
   </div>
-
-
-
 
 
 <iframe id="pie" src="/views/plantiila/pie_pagina.html" frameborder="0" ></iframe>

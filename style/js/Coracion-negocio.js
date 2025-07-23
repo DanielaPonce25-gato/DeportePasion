@@ -2,6 +2,16 @@
     let totalGeneral = 0;
     let productosSeleccionados = [];
 
+  
+    //Barra de busqueda
+    const input = document.querySelector("#buscarProducto");
+    const buscarBtn = document.querySelector("#buscar");
+    const addBtn = document.querySelector("#add");
+    const resultadosUl = document.querySelector("#busqueda");
+    const listaUl = document.querySelector("#lista");
+    const error = document.querySelector(".bg-danger");
+
+
     /* El método getElementById() es una función del objeto document que nos permite 
       obtener una referencia a un elemento HTML específico en el DOM mediante su atributo id.
       
@@ -20,12 +30,12 @@
     :[   //Array de productos generados 
       { nombre: "Pantalon Nike Negro", precio: 10000.99, imagen: "pantalon-nike-negro.jpg", stock: 7 },
       { nombre: "Zapatilla Azul", precio: 50000.45, imagen: "adidas-zapazul.jpg", stock: 6 },
-      { nombre: "Patalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg", stock: 9  },
+      { nombre: "Pantalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg", stock: 9  },
       { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-azul.jpg", stock: 6},
       { nombre: "Termo Negro", precio: 3000.50, imagen: "termo-negro.jpg", stock: 7},
       { nombre: "Pantalon Nike Azul", precio: 12000.40, imagen: "pantalon-nike-azul.jpg", stock: 5  },
       { nombre: "Pantalon Nike Gris", precio: 14000.25, imagen: "pantalon-nike-gris.jpg", stock: 5 },
-      { nombre: "Patalon corto Gris", precio: 8000.17, imagen: "pantalon-corto-gris.jpg", stock: 4 },
+      { nombre: "Pantalon corto Gris", precio: 8000.17, imagen: "pantalon-corto-gris.jpg", stock: 4 },
       { nombre: "Zapatilla de correr Negra", precio: 43000.30, imagen: "zapatillas-correr-negra.jpg", stock: 8 },
       { nombre: "Zapatilla de correr celeste", precio: 52000.30, imagen: "zapatillas-correr-celeste.jpg", stock: 5  },
       { nombre: "Producto 3", precio: 15.49, imagen: "" },
@@ -51,6 +61,77 @@ function resetearStock() {
   location.reload(); // Recarga la página y se volverán a cargar los valores por defecto
 }
 
+
+// Barra de busqueda
+
+    const mostrarError = (mostrar) => {
+      if (mostrar) {
+        error.classList.remove("d-none");
+      } else {
+        error.classList.add("d-none");
+      }
+    };
+
+
+     // Esta es tu función handleAdd original adaptada
+    const handleAdd = () => {
+      if (!input.value.trim()) {
+        error.classList.remove("d-none");
+        return;
+      }
+
+      const li = document.createElement("li");
+      const span = document.createElement("span");
+      span.textContent = input.value;
+      li.appendChild(span);
+
+      const borrar = document.createElement("img");
+      borrar.src = "./img/elimina.png"
+      borrar.alt = "Eliminar tarea";
+      borrar.onclick = () => li.remove();
+      li.appendChild(borrar);
+
+      listaUl.appendChild(li);
+      input.value = "";
+    };
+
+    const buscarProducto = () => {
+      resultadosUl.innerHTML = "";
+      const texto = input.value.trim().toLowerCase();
+
+      if (!texto) {
+        mostrarError(true);
+        return;
+      }
+
+      mostrarError(false);
+
+      const encontrados = productos.filter(p =>
+        p.nombre.toLowerCase().includes(texto)
+      );
+
+      if (encontrados.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "No se encontró ningún producto.";
+        resultadosUl.appendChild(li);
+        return;
+      }
+
+      encontrados.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`;
+        resultadosUl.appendChild(li);
+      });
+    };
+
+
+    const handleReset = () => error.classList.add("d-none");
+
+    buscarBtn.addEventListener("click", buscarProducto);
+    addBtn.addEventListener("click", handleAdd);
+    input.addEventListener("keydown", handleReset);
+
+    
 //seguridad de acceso de stock
 
 const codigoEmpleado = "1234"; // código de acceso
@@ -346,6 +427,5 @@ function mostrarStockBajo() {
     });
 
     mostrarProductos();  // Donde comiensa la acción. inovamos la función mostrarProductos
-
 
 
