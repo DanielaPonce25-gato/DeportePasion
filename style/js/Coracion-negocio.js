@@ -12,17 +12,22 @@
     let listaProductos = document.getElementById("lista-productos"); // visualiza los productos que seleciono el usuarrio en el carrito en el html
     let carritoVisible = false;  
 
-    let productos = [   //Array de productos generados 
-      { nombre: "Pantalon Nike Negro", precio: 10000.99, imagen: "pantalon-nike-negro.jpg", stock: 5 },
-      { nombre: "Zapatilla Azul", precio: 50000.45, imagen: "adidas-zapazul.jpg", stock: 3 },
-      { nombre: "Patalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg", stock: 4  },
+   // Cargar productos desde localStorage 
+    let productosGuardados = localStorage.getItem("productos");
+
+    let productos = productosGuardados
+    ? JSON.parse(productosGuardados)
+    :[   //Array de productos generados 
+      { nombre: "Pantalon Nike Negro", precio: 10000.99, imagen: "pantalon-nike-negro.jpg", stock: 7 },
+      { nombre: "Zapatilla Azul", precio: 50000.45, imagen: "adidas-zapazul.jpg", stock: 6 },
+      { nombre: "Patalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg", stock: 9  },
       { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-azul.jpg", stock: 6},
-      { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-negro.jpg", stock: 2},
+      { nombre: "Termo Negro", precio: 3000.50, imagen: "termo-negro.jpg", stock: 7},
       { nombre: "Pantalon Nike Azul", precio: 12000.40, imagen: "pantalon-nike-azul.jpg", stock: 5  },
-      { nombre: "Pantalon Nike Gris", precio: 14000.25, imagen: "pantalon-nike-gris.jpg", stock: 3 },
+      { nombre: "Pantalon Nike Gris", precio: 14000.25, imagen: "pantalon-nike-gris.jpg", stock: 5 },
       { nombre: "Patalon corto Gris", precio: 8000.17, imagen: "pantalon-corto-gris.jpg", stock: 4 },
-      { nombre: "Zapatilla de correr Negra", precio: 43000.30, imagen: "zapatillas-correr-negra.jpg", stock: 2 },
-      { nombre: "Zapatilla de correr celeste", precio: 52000.30, imagen: "zapatillas-correr-celeste.jpg", stock: 1  },
+      { nombre: "Zapatilla de correr Negra", precio: 43000.30, imagen: "zapatillas-correr-negra.jpg", stock: 8 },
+      { nombre: "Zapatilla de correr celeste", precio: 52000.30, imagen: "zapatillas-correr-celeste.jpg", stock: 5  },
       { nombre: "Producto 3", precio: 15.49, imagen: "" },
       { nombre: "Producto 2", precio: 5.99, imagen: "" },
       { nombre: "Producto 3", precio: 15.49, imagen: "" },
@@ -31,7 +36,21 @@
     ];
 
 
-    
+// Guardar array en localStorage si es la primera vez
+if (!productosGuardados) {
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
+
+function guardarProductosEnLocalStorage() {  //Guarda el contenido del array productos en el localStorage del navegador.
+  localStorage.setItem("productos", JSON.stringify(productos));
+}
+  
+
+function resetearStock() {
+  localStorage.removeItem("productos");
+  location.reload(); // Recarga la página y se volverán a cargar los valores por defecto
+}
+
 //seguridad de acceso de stock
 
 const codigoEmpleado = "1234"; // código de acceso
@@ -52,7 +71,7 @@ function accederComoEmpleado() {
 //Gestion de Stock
 
 function mostrarStockTotal() {
-  const total = productos.reduce((acc, p) => {
+  const total = productos.reduce((acc, p) => {   //recorre el array productos, y va acumulando (acc) el stock de cada producto (p). 
     const stock = isNaN(p.stock) ? 0 : p.stock;  // Verifica si stock es NaN, y en ese caso le asigna 0
     return acc + stock;
   }, 0);
@@ -69,16 +88,20 @@ function listarStockPorProducto() {
 }
 
 function buscarProductoPorNombre() {
-  const nombre = prompt("Ingrese el nombre del producto a buscar:").toLowerCase();
+  const nombre = prompt("Ingrese el nombre del producto a buscar:").toLowerCase();   
   const resultados = productos.filter(p => p.nombre.toLowerCase().includes(nombre));
 
+  // toLowerCase Convierte el texto a minúsculas para que la búsqueda no sea sensible a mayúsculas/minúsculas.
+
+  // includes se utiliza para verificar si un texto (string) o un elemento de un array contiene cierto valor.
+  
   if (resultados.length === 0) {
     alert(" No se encontró ningún producto con ese nombre.");
     return;
   }
 
   let mensaje = "Productos encontrados:\n\n";
-  resultados.forEach(p => {
+  resultados.forEach(p => {                       // forEach() para iterar sobre los elementos de un array
     mensaje += `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}\n`;
   });
 
@@ -98,7 +121,7 @@ function mostrarProductosAgotados() {
 }
 
 function mostrarStockBajo() {
-  const limite = 2;
+  const limite = 4;
   const bajos = productos.filter(p => p.stock > 0 && p.stock <= limite);
 
   if (bajos.length === 0) {
@@ -106,7 +129,7 @@ function mostrarStockBajo() {
     return;
   }
 
-  let mensaje = "Productos con stock bajo (≤ 2):\n\n";
+  let mensaje = "Productos con stock bajo (≤ 4):\n\n";
   bajos.forEach(p => mensaje += ` ${p.nombre}: ${p.stock} unidades\n`);
   alert(mensaje);
 }
@@ -141,6 +164,8 @@ function mostrarStockBajo() {
 
       
       producto.stock--;  // Descunta una unidad de stock
+      
+      guardarProductosEnLocalStorage();
 
       let precioConDescuento = producto.precio * (1 - descuento);
       totalGeneral += precioConDescuento;
@@ -182,7 +207,10 @@ function mostrarStockBajo() {
       if (producto) {
         producto.stock++;
       }
-    });
+      });
+
+
+      guardarProductosEnLocalStorage();
 
       productosSeleccionados = [];
       totalGeneral = 0;
@@ -275,6 +303,8 @@ function mostrarStockBajo() {
 
       // 🧹 Limpiar toda la sessionStorage
       sessionStorage.clear();
+
+      guardarProductosEnLocalStorage();
 
       mostrarProductos();
 
