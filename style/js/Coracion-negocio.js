@@ -64,73 +64,82 @@ function resetearStock() {
 
 // Barra de busqueda
 
-    const mostrarError = (mostrar) => {
-      if (mostrar) {
-        error.classList.remove("d-none");
-      } else {
-        error.classList.add("d-none");
-      }
-    };
+// Mostrar u ocultar mensaje de error
+const mostrarError = (mostrar) => {
+  if (error) {
+    if (mostrar) {
+      error.classList.remove("d-none");
+    } else {
+      error.classList.add("d-none");
+    }
+  } 
+};
 
 
-     // Esta es tu función handleAdd original adaptada
-    const handleAdd = () => {
-      if (!input.value.trim()) {
-        error.classList.remove("d-none");
-        return;
-      }
+// Agregar una busqueda a la lista
+const handleAdd = () => {
+  if (!input.value.trim()) {
+    mostrarError(true);
+    return;
+  }
 
-      const li = document.createElement("li");
-      const span = document.createElement("span");
-      span.textContent = input.value;
-      li.appendChild(span);
+  mostrarError(false);
 
-      const borrar = document.createElement("img");
-      borrar.src = "./img/elimina.png"
-      borrar.alt = "Eliminar tarea";
-      borrar.onclick = () => li.remove();
-      li.appendChild(borrar);
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  span.textContent = input.value;
+  li.appendChild(span);
 
-      listaUl.appendChild(li);
-      input.value = "";
-    };
+  const borrar = document.createElement("img");
+  borrar.src = "./img/elimina.png";
+  borrar.alt = "Eliminar tarea";
+  borrar.onclick = () => li.remove();
+  li.appendChild(borrar);
 
-    const buscarProducto = () => {
-      resultadosUl.innerHTML = "";
-      const texto = input.value.trim().toLowerCase();
-
-      if (!texto) {
-        mostrarError(true);
-        return;
-      }
-
-      mostrarError(false);
-
-      const encontrados = productos.filter(p =>
-        p.nombre.toLowerCase().includes(texto)
-      );
-
-      if (encontrados.length === 0) {
-        const li = document.createElement("li");
-        li.textContent = "No se encontró ningún producto.";
-        resultadosUl.appendChild(li);
-        return;
-      }
-
-      encontrados.forEach(p => {
-        const li = document.createElement("li");
-        li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`;
-        resultadosUl.appendChild(li);
-      });
-    };
+  listaUl.appendChild(li);
+  input.value = "";
+};
 
 
-    const handleReset = () => error.classList.add("d-none");
+// Buscar producto 
 
-    buscarBtn.addEventListener("click", buscarProducto);
-    addBtn.addEventListener("click", handleAdd);
-    input.addEventListener("keydown", handleReset);
+const buscarProducto = () => {
+  resultadosUl.innerHTML = "";
+  const texto = input.value.trim().toLowerCase();
 
+  if (!texto) {
+    mostrarError(true);
+    return;
+  }
+
+  mostrarError(false);
+
+  const encontrados = productos.filter(p =>
+    p.nombre.toLowerCase().includes(texto)
+  );
+
+  if (encontrados.length === 0) {
+    const li = document.createElement("li");
+    li.textContent = "No se encontró ningún producto.";
+    resultadosUl.appendChild(li);
+    return;
+  }
+
+  encontrados.forEach(p => {
+    const li = document.createElement("li");
+    
+    li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`;
+    resultadosUl.appendChild(li);
+  });
+};
+
+// Ocultar error al escribir
+const handleReset = () => mostrarError(false);
+
+// Eventos
+buscarBtn.addEventListener("click", buscarProducto);
+addBtn.addEventListener("click", handleAdd);
+input.addEventListener("keydown", handleReset);
     
 //seguridad de acceso de stock
 
