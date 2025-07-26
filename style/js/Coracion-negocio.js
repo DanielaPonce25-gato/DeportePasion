@@ -31,18 +31,32 @@
       { nombre: "Pantalon Nike Negro", precio: 10000.99, imagen: "pantalon-nike-negro.jpg", stock: 7 },
       { nombre: "Zapatilla Azul", precio: 50000.45, imagen: "adidas-zapazul.jpg", stock: 6 },
       { nombre: "Pantalon corto Negro", precio: 5000.33, imagen: "pantalon-cortonegro.jpg", stock: 9  },
-      { nombre: "Termo Azul", precio: 3000.50, imagen: "termo-azul.jpg", stock: 6},
-      { nombre: "Termo Negro", precio: 3000.50, imagen: "termo-negro.jpg", stock: 7},
-      { nombre: "Pantalon Nike Azul", precio: 12000.40, imagen: "pantalon-nike-azul.jpg", stock: 5  },
-      { nombre: "Pantalon Nike Gris", precio: 14000.25, imagen: "pantalon-nike-gris.jpg", stock: 5 },
-      { nombre: "Pantalon corto Gris", precio: 8000.17, imagen: "pantalon-corto-gris.jpg", stock: 4 },
-      { nombre: "Zapatilla de correr Negra", precio: 43000.30, imagen: "zapatillas-correr-negra.jpg", stock: 8 },
-      { nombre: "Zapatilla de correr celeste", precio: 52000.30, imagen: "zapatillas-correr-celeste.jpg", stock: 5  },
-      { nombre: "Producto 3", precio: 15.49, imagen: "" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "" },
-      { nombre: "Producto 2", precio: 5.99, imagen: "" },
-      { nombre: "Producto 3", precio: 15.49, imagen: "" }
+      { nombre: "Termo Azul", precio: 3000.45, imagen: "termo-azul.jpg", stock: 6},
+      { nombre: "Termo Negro", precio: 3000.45, imagen: "termo-negro.jpg", stock: 7},
+      { nombre: "Pantalon Nike Azul", precio: 12000, imagen: "pantalon-nike-azul.jpg", stock: 5  },
+      { nombre: "Pantalon Nike Gris", precio: 14000, imagen: "pantalon-nike-gris.jpg", stock: 5 },
+      { nombre: "Pantalon corto Gris", precio: 8000, imagen: "pantalon-corto-gris.jpg", stock: 4 },
+      { nombre: "Zapatilla de correr Negra", precio: 43000, imagen: "zapatillas-correr-negra.jpg", stock: 8 },
+      { nombre: "Zapatilla de correr celeste", precio: 52000, imagen: "zapatillas-correr-celeste.jpg", stock: 5  },
+      { nombre: "Tabla de Surf Celeste ", precio: 319.900, imagen: "tabla-surf-celeste.jpg", stock: 12  },
+      { nombre: "Tabla de Surf con diceño", precio: 869.000, imagen: "tabla-surf-dibujo.jpg" ,stock: 7 },
+      { nombre: "Tabla de Surf Marron Claro", precio: 489.000, imagen: "tabla-surf-marron-clarito.jpg",stock: 9 },
+      { nombre: "Neopreno de Verano Azul", precio:415.000, imagen: "neopreno-verano-azul.jpg" ,stock: 7},
+      { nombre: "Neopreno de Verano Negro", precio: 243.200, imagen: "neopreno-verano-negro.jpg",stock: 11 }, 
+
+      { nombre: "Neopreno Seco Gris", precio: 634.826, imagen: "neopreno-seco-gris.png", stock: 8 },
+      { nombre: "Neopreno Seco Negras", precio: 396.646, imagen: "neopreno-seco-negro.png", stock: 6 },
+      { nombre: "Botas Nauticas Negras", precio: 79992, imagen: "neopreno-seco-negro.png", stock:  7 },
+      { nombre: "Botas Nauticas Gris ", precio: 97123, imagen: "botas-neopreno-gris.png", stock:  5 },
+      { nombre: "Botas Nauticas Gris Azulado", precio: 120.200, imagen: "botas-neopreno-gris-asulada.png" ,stock: 10 },
+      { nombre: "Mascara + Tubo Celeste", precio: 46799, imagen: "mascara+tubo-celeste.png",stock: 7},
+      { nombre: "Mascara + Tubo Roja", precio: 28.109, imagen: "mascara+tubo-roja.png" ,stock: 4},
+      { nombre: "Mascara + Tubo Negra", precio: 42491, imagen: "mascara+tubo-negra.png",stock:  8},
+      { nombre: "Cuchillo tobillera Amarillo", precio: 170.000, imagen: "cuchillo-tobillera-amarillo.png" ,stock: 6 },
+      { nombre: "Cuchillo tobillera Negro", precio: 120.957, imagen: "cuchillo-tovillera-negro.png",stock: 9},
+      { nombre: "Regulador Principal", precio: 677.720, imagen: "regulador-principal.png" ,stock: 12},
+      { nombre: "Regulador de Emergencia", precio: 878.999, imagen: "regulador-seguridad.png",stock:  11},
+      { nombre: "Manometro", precio: 170.000, imagen: "manometro.png" ,stock: 9 }
     ];
 
 
@@ -64,26 +78,24 @@ function resetearStock() {
 
 // Barra de busqueda
 
-// Mostrar u ocultar mensaje de error
+
 const mostrarError = (mostrar) => {
-  if (error) {
-    if (mostrar) {
-      error.classList.remove("d-none");
-    } else {
-      error.classList.add("d-none");
-    }
-  } 
+  if (mostrar) {
+    error.classList.remove("d-none");
+  } else {
+    error.classList.add("d-none");
+  }
 };
 
 
-// Agregar una busqueda a la lista
+
 const handleAdd = () => {
   if (!input.value.trim()) {
-    mostrarError(true);
+    error.classList.remove("d-none");
     return;
   }
 
-  mostrarError(false);
+
 
   const li = document.createElement("li");
   const span = document.createElement("span");
@@ -91,7 +103,7 @@ const handleAdd = () => {
   li.appendChild(span);
 
   const borrar = document.createElement("img");
-  borrar.src = "./img/elimina.png";
+  borrar.src = "./img/elimina.png"
   borrar.alt = "Eliminar tarea";
   borrar.onclick = () => li.remove();
   li.appendChild(borrar);
@@ -100,6 +112,8 @@ const handleAdd = () => {
   input.value = "";
 };
 
+
+    
 
 // Buscar producto 
 
@@ -125,21 +139,23 @@ const buscarProducto = () => {
     return;
   }
 
+  
   encontrados.forEach(p => {
     const li = document.createElement("li");
-    
-    li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`;
+      li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`;
     resultadosUl.appendChild(li);
   });
 };
 
-// Ocultar error al escribir
-const handleReset = () => mostrarError(false);
 
-// Eventos
+const handleReset = () => error.classList.add("d-none");
+
+
+
 buscarBtn.addEventListener("click", buscarProducto);
 addBtn.addEventListener("click", handleAdd);
 input.addEventListener("keydown", handleReset);
+
     
 //seguridad de acceso de stock
 
@@ -435,6 +451,4 @@ function mostrarStockBajo() {
       principal(); //declaración a la función 
     });
 
-    mostrarProductos();  // Donde comiensa la acción. inovamos la función mostrarProductos
-
-
+mostrarProductos();  // Donde comiensa la acción. inovamos la función mostrarProductos
