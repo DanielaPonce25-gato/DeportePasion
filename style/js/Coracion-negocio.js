@@ -38,25 +38,25 @@
       { nombre: "Pantalon corto Gris", precio: 8000, imagen: "pantalon-corto-gris.jpg", stock: 4 },
       { nombre: "Zapatilla de correr Negra", precio: 43000, imagen: "zapatillas-correr-negra.jpg", stock: 8 },
       { nombre: "Zapatilla de correr celeste", precio: 52000, imagen: "zapatillas-correr-celeste.jpg", stock: 5  },
-      { nombre: "Tabla de Surf Celeste ", precio: 319.900, imagen: "tabla-surf-celeste.jpg", stock: 12  },
-      { nombre: "Tabla de Surf con diceño", precio: 869.000, imagen: "tabla-surf-dibujo.jpg" ,stock: 7 },
-      { nombre: "Tabla de Surf Marron Claro", precio: 489.000, imagen: "tabla-surf-marron-clarito.jpg",stock: 9 },
-      { nombre: "Neopreno de Verano Azul", precio:415.000, imagen: "neopreno-verano-azul.jpg" ,stock: 7},
-      { nombre: "Neopreno de Verano Negro", precio: 243.200, imagen: "neopreno-verano-negro.jpg",stock: 11 }, 
+      { nombre: "Tabla de Surf Celeste ", precio: 319900, imagen: "tabla-surf-celeste.jpg", stock: 12  },
+      { nombre: "Tabla de Surf con diceño", precio: 869000.30, imagen: "tabla-surf-dibujo.jpg" ,stock: 7 },
+      { nombre: "Tabla de Surf Marron Claro", precio: 489000.20, imagen: "tabla-surf-marron-clarito.jpg",stock: 9 },
+      { nombre: "Neopreno de Verano Azul", precio:415000.10, imagen: "neopreno-verano-azul.jpg" ,stock: 7},
+      { nombre: "Neopreno de Verano Negro", precio: 243200.10, imagen: "neopreno-verano-negro.jpg",stock: 11 }, 
 
-      { nombre: "Neopreno Seco Gris", precio: 634.826, imagen: "neopreno-seco-gris.png", stock: 8 },
-      { nombre: "Neopreno Seco Negras", precio: 396.646, imagen: "neopreno-seco-negro.png", stock: 6 },
-      { nombre: "Botas Nauticas Negras", precio: 79992, imagen: "neopreno-seco-negro.png", stock:  7 },
+      { nombre: "Neopreno Seco Gris", precio: 63482.80, imagen: "neopreno-seco-gris.png", stock: 8 },
+      { nombre: "Neopreno Seco Negras", precio: 39664.20, imagen: "neopreno-seco-negro.png", stock: 6 },
+      { nombre: "Botas Nauticas Negras", precio: 7999.2, imagen: "botas-neopreno-negras.png", stock:  7 },
       { nombre: "Botas Nauticas Gris ", precio: 97123, imagen: "botas-neopreno-gris.png", stock:  5 },
-      { nombre: "Botas Nauticas Gris Azulado", precio: 120.200, imagen: "botas-neopreno-gris-asulada.png" ,stock: 10 },
-      { nombre: "Mascara + Tubo Celeste", precio: 46799, imagen: "mascara+tubo-celeste.png",stock: 7},
-      { nombre: "Mascara + Tubo Roja", precio: 28.109, imagen: "mascara+tubo-roja.png" ,stock: 4},
-      { nombre: "Mascara + Tubo Negra", precio: 42491, imagen: "mascara+tubo-negra.png",stock:  8},
-      { nombre: "Cuchillo tobillera Amarillo", precio: 170.000, imagen: "cuchillo-tobillera-amarillo.png" ,stock: 6 },
-      { nombre: "Cuchillo tobillera Negro", precio: 120.957, imagen: "cuchillo-tovillera-negro.png",stock: 9},
-      { nombre: "Regulador Principal", precio: 677.720, imagen: "regulador-principal.png" ,stock: 12},
-      { nombre: "Regulador de Emergencia", precio: 878.999, imagen: "regulador-seguridad.png",stock:  11},
-      { nombre: "Manometro", precio: 170.000, imagen: "manometro.png" ,stock: 9 }
+      { nombre: "Botas Nauticas Gris Azulado", precio: 12020.0, imagen: "botas-neopreno-gris-asulada.png" ,stock: 10 },
+      { nombre: "Mascara + Tubo Celeste", precio: 4679.96, imagen: "mascara+tubo-celeste.png",stock: 7},
+      { nombre: "Mascara + Tubo Roja", precio: 2810.90, imagen: "mascara+tubo-roja.png" ,stock: 4},
+      { nombre: "Mascara + Tubo Negra", precio: 4249.10, imagen: "mascara+tubo-negra.png",stock:  8},
+      { nombre: "Cuchillo tobillera Amarillo", precio: 1700.70, imagen: "cuchillo-tobillera-amarillo.png" ,stock: 6 },
+      { nombre: "Cuchillo tobillera Negro", precio: 1209.57, imagen: "cuchillo-tovillera-negro.png",stock: 9},
+      { nombre: "Regulador Principal", precio: 677720.90, imagen: "regulador-principal.png" ,stock: 12},
+      { nombre: "Regulador de Emergencia", precio: 878999.90, imagen: "regulador-seguridad.png",stock:  11},
+      { nombre: "Manometro", precio: 170000.90, imagen: "manometro.png" ,stock: 9 }
     ];
 
 
@@ -81,24 +81,24 @@ function resetearStock() {
 
 const mostrarError = (mostrar) => {
   if (mostrar) {
-    error.classList.remove("d-none");
+    error.classList.remove("d-none"); // si mostrar es verdadero muestra el mensaje
   } else {
-    error.classList.add("d-none");
+    error.classList.add("d-none"); // si mostrar es falso , oculta el mensaje
   }
 };
 
 
 
 const handleAdd = () => {
-  if (!input.value.trim()) {
-    error.classList.remove("d-none");
+  if (!input.value.trim()) {  // Verifica si input está vacío o contiene solo espacios.
+    error.classList.remove("d-none"); // si el input está vacío , muestra  el mensaje oculto 
     return;
   }
 
 
 
-  const li = document.createElement("li");
-  const span = document.createElement("span");
+  const li = document.createElement("li"); // si el usuario escribio, crea un li (iten)
+  const span = document.createElement("span"); // crea un espacio , donde va alvergar li
   span.textContent = input.value;
   li.appendChild(span);
 
@@ -106,9 +106,9 @@ const handleAdd = () => {
   borrar.src = "./img/elimina.png"
   borrar.alt = "Eliminar tarea";
   borrar.onclick = () => li.remove();
-  li.appendChild(borrar);
+  li.appendChild(borrar);  // Agrega la imagen 
 
-  listaUl.appendChild(li);
+  listaUl.appendChild(li); 
   input.value = "";
 };
 
@@ -118,37 +118,37 @@ const handleAdd = () => {
 // Buscar producto 
 
 const buscarProducto = () => {
-  resultadosUl.innerHTML = "";
+  resultadosUl.innerHTML = ""; // borra lo navegado por el usuario
   const texto = input.value.trim().toLowerCase();
 
-  if (!texto) {
+  if (!texto) {  //si el usuario no escribió nada, muestra el mensaje oculto
     mostrarError(true);
     return;
   }
 
-  mostrarError(false);
+  mostrarError(false);  // si escribio el usuario, oculta mensaje
 
   const encontrados = productos.filter(p =>
-    p.nombre.toLowerCase().includes(texto)
+    p.nombre.toLowerCase().includes(texto) // a lo buscado verifica si coencide con los objetos del array (productos)
   );
 
-  if (encontrados.length === 0) {
-    const li = document.createElement("li");
+  if (encontrados.length === 0) { // si no coenside
+    const li = document.createElement("li");  // el li creado , mostrara el mensaje "no se encontro producto"
     li.textContent = "No se encontró ningún producto.";
     resultadosUl.appendChild(li);
     return;
   }
 
   
-  encontrados.forEach(p => {
-    const li = document.createElement("li");
-      li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`;
+  encontrados.forEach(p => {  // si lo buscado coenside 
+    const li = document.createElement("li"); // con el li creado
+      li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`; // muestra
     resultadosUl.appendChild(li);
   });
 };
 
 
-const handleReset = () => error.classList.add("d-none");
+const handleReset = () => error.classList.add("d-none"); // cada vez que el usuario escribe algo, el mensaje de error se oculta automáticamente.
 
 
 
@@ -166,7 +166,7 @@ function accederComoEmpleado() {
 
   if (intento === codigoEmpleado) {
     alert("Acceso concedido.");
-    document.getElementById("panel-stock").style.display = "block";  // acceso aceptado
+    document.getElementById("panel-stock").style.display = "block"; 
   } else {
     alert("Código incorrecto. Acceso denegado.");
   }

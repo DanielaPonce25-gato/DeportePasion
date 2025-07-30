@@ -396,6 +396,10 @@ h3{
 }
 
 
+/* Oculta el mensaje de error */
+.d-none {
+    display: none;
+}
 
 #pie{
     display: flex;
