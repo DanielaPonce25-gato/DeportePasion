@@ -63,7 +63,7 @@ al escribir return new Promese: ya le estamos avisando a javascrip de que vamos 
 */
 
 
-function obtenerDestinosPorCategoria(categoria) {  // Categoria su parametro. Verifica si existe
+function obtenerDestinosPorCategoria(categori) {  // Categoria su parametro. Verifica si existe
     return new Promise((resolve, reject) => {
         //busca la categoria selecionada , verifica y devuelve el resultado
         const resultado = destinos.filter(destino => destino.categoria === categoria); 
@@ -117,7 +117,18 @@ function mostrarDestinosPorCategoria(categoria) {
         })
         .catch(error => { // Captura el error
             contenidoDiv.innerHTML = `<p style="color:red;">Ay una error, no se visualiza los destinos ${error}</p>`;
+            
+            Swal.fire({
+
+                title: "Alerta, Error de la app ",
+                text:  "Lo sentimos por el incomeniente, estaremos trabajando para solucionarlo",
+                icon: "warning", // icono
+                showCancelButton: true, // nos permite crear un boton de cancelación 
+                cancelButtonText: "Canselar" // nos permite crear un boton de cancelación
+            })
+            
             console.error("Error capturado, no se visualiza los destinos ",error)
+
         })
         .finally(() => {  // Condición que se hace por que si. Condicion que es un hecho  
             
