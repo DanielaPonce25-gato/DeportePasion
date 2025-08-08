@@ -144,13 +144,13 @@ li{
 
 .ecavesadocompra {
     position: fixed;
-    width: max-content;
-    top: 8%;
-    background-color: rgb(127, 255, 212);
-    padding: 0px;
+    top: 60px; 
     width: 100%;
-    height: 47px;
+    background-color: rgb(127, 255, 212);
+    height: 60px;
+    z-index: 10;
 }
+
 
 .mediodepago {
     display: flex;
@@ -175,13 +175,13 @@ li{
 
 .descuento {
     position: fixed;
-    width: max-content;
-    top: 16%;
+    top: 120px; 
+    width: 100%;
     background-color: rgba(0, 14, 207, 0.556);
     color: azure;
     font-size: 13px;
-    width: 100%;
     height: 50px;
+    z-index: 9;
 }
 
 h1{
@@ -401,12 +401,21 @@ h3{
     display: none;
 }
 
+
 #pie{
     display: flex;
     width:100%;
     height: max-content;
 }
 
+
+object{
+
+    width:100%; 
+    height:600px; 
+    border:none; 
+    overflow: hidden; /* sin scroll */
+}
 
 @media (min-width: 330px) and (max-width: 360px) {
 
@@ -519,9 +528,9 @@ h3{
     /* medio de pago */
 
     .ecavesadocompra {
-        top: 6%;
-        height: 57px;
+        height: 60px;
     }
+
 
     .mediodepago {
         margin-right: 45px;
@@ -541,13 +550,10 @@ h3{
     /*mensaje descuento*/
 
     .descuento {
-        top: 13%;
-        background-color: rgba(0, 14, 207, 0.556);
-        color: azure;
+        height: 50px;
         font-size: 12px;
-        width: 100%;
-        height: 47px;
     }
+
 
 
     /* productos generados */

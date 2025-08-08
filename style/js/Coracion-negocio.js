@@ -43,17 +43,16 @@
       { nombre: "Tabla de Surf Marron Claro", precio: 489000.20, imagen: "tabla-surf-marron-clarito.jpg",stock: 9 },
       { nombre: "Neopreno de Verano Azul", precio:415000.10, imagen: "neopreno-verano-azul.jpg" ,stock: 7},
       { nombre: "Neopreno de Verano Negro", precio: 243200.10, imagen: "neopreno-verano-negro.jpg",stock: 11 }, 
-
-      { nombre: "Neopreno Seco Gris", precio: 63482.80, imagen: "neopreno-seco-gris.png", stock: 8 },
-      { nombre: "Neopreno Seco Negras", precio: 39664.20, imagen: "neopreno-seco-negro.png", stock: 6 },
+      { nombre: "Neopreno Seco Gris", precio: 634828.80, imagen: "neopreno-seco-gris.png", stock: 8 },
+      { nombre: "Neopreno Seco Negras", precio: 396642.10, imagen: "neopreno-seco-negro.png", stock: 6 },
       { nombre: "Botas Nauticas Negras", precio: 7999.2, imagen: "botas-neopreno-negras.png", stock:  7 },
       { nombre: "Botas Nauticas Gris ", precio: 97123, imagen: "botas-neopreno-gris.png", stock:  5 },
       { nombre: "Botas Nauticas Gris Azulado", precio: 12020.0, imagen: "botas-neopreno-gris-asulada.png" ,stock: 10 },
       { nombre: "Mascara + Tubo Celeste", precio: 4679.96, imagen: "mascara+tubo-celeste.png",stock: 7},
       { nombre: "Mascara + Tubo Roja", precio: 2810.90, imagen: "mascara+tubo-roja.png" ,stock: 4},
       { nombre: "Mascara + Tubo Negra", precio: 4249.10, imagen: "mascara+tubo-negra.png",stock:  8},
-      { nombre: "Cuchillo tobillera Amarillo", precio: 1700.70, imagen: "cuchillo-tobillera-amarillo.png" ,stock: 6 },
-      { nombre: "Cuchillo tobillera Negro", precio: 1209.57, imagen: "cuchillo-tovillera-negro.png",stock: 9},
+      { nombre: "Cuchillo tobiyera Amariyo", precio: 1700.70, imagen: "cuchillo-tobillera-amarillo.png" ,stock: 6 },
+      { nombre: "Cuchillo tobiyera Negro", precio: 1209.57, imagen: "cuchillo-tovillera-negro.png",stock: 9},
       { nombre: "Regulador Principal", precio: 677720.90, imagen: "regulador-principal.png" ,stock: 12},
       { nombre: "Regulador de Emergencia", precio: 878999.90, imagen: "regulador-seguridad.png",stock:  11},
       { nombre: "Manometro", precio: 170000.90, imagen: "manometro.png" ,stock: 9 }
@@ -142,7 +141,7 @@ const buscarProducto = () => {
   
   encontrados.forEach(p => {  // si lo buscado coenside 
     const li = document.createElement("li"); // con el li creado
-      li.textContent = `${p.nombre} | Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`; // muestra
+      li.textContent = `${p.nombre} |Precio: $${p.precio.toFixed(2)} | Stock: ${p.stock}`; // muestra
     resultadosUl.appendChild(li);
   });
 };
@@ -215,7 +214,7 @@ function buscarProductoPorNombre() {
 }
 
 function mostrarProductosAgotados() {
-  const agotados = productos.filter(p => p.stock <= 0);
+  const agotados = productos.filter(p => p.stock <= 0); // verifica la cantidad de stock si ay 0
   if (agotados.length === 0) {
     alert("No hay productos agotados.");
     return;
@@ -428,7 +427,8 @@ function mostrarStockBajo() {
           cancelar();
           break;
         default:
-          principal();
+          alert("Por favor, ingrese solo estas opciones:  1.COMPRAR o 2.CALCELAR");
+          principal(); 
       }
     };
 
