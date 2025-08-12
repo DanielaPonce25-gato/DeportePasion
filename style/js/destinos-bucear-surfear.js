@@ -63,7 +63,7 @@ al escribir return new Promese: ya le estamos avisando a javascrip de que vamos 
 */
 
 
-function obtenerDestinosPorCategoria(categori) {  // Categoria su parametro. Verifica si existe
+function obtenerDestinosPorCategoria(categoria) {  // Categoria su parametro. Verifica si existe
     return new Promise((resolve, reject) => {
         //busca la categoria selecionada , verifica y devuelve el resultado
         const resultado = destinos.filter(destino => destino.categoria === categoria); 
@@ -82,60 +82,53 @@ function obtenerDestinosPorCategoria(categori) {  // Categoria su parametro. Ver
 
 // Mostrar los destinos sugun por su categoría
 
-function mostrarDestinosPorCategoria(categoria) {
+async function mostrarDestinosPorCategoria(categoria) {  // envocamos la promesa 
     contenidoDiv.innerHTML = '<p style="font-size: 30px;">Cargando destinos...</p>';
-    
 
-    obtenerDestinosPorCategoria(categoria)   // envocamos la promesa 
 
-        .then(filtrados => {  // si se cumple, muestra la categoria selecionada
-            contenidoDiv.innerHTML = "";
+     try {   // si se cumple, muestra la categoria selecionada
+        const filtrados = await obtenerDestinosPorCategoria(categoria);
+        contenidoDiv.innerHTML = "";
 
-            console.log("datos obtenidos con promesas: ",destinos)
+        filtrados.forEach(destino => {  // Proceso de visualización  
 
-            filtrados.forEach(destino => {  // Proceso de visualización
+            const div = document.createElement("div"); // Genera un container donde va a estar alojado los destinos
+            div.className = "destino";
 
-                const div = document.createElement("div"); // Genera un container donde va a estar alojado los destinos
-                div.className = "destino";
+            const titulo = document.createElement("h2");
+            titulo.textContent = destino.nombre;
 
-                const titulo = document.createElement("h2"); 
-                titulo.textContent = destino.nombre;
+            const img = document.createElement("img");
+            img.src = destino.imagen;
+            img.alt = destino.nombre;
 
-                const img = document.createElement("img");
-                img.src = destino.imagen;
-                img.alt = destino.nombre;
+            const descripcion = document.createElement("p");
+            descripcion.textContent = destino.descripcion;
 
-                const descripcion = document.createElement("p");
-                descripcion.textContent = destino.descripcion;
+            div.appendChild(titulo);
+            div.appendChild(img);
+            div.appendChild(descripcion);
 
-                div.appendChild(titulo);
-                div.appendChild(img);
-                div.appendChild(descripcion);
-
-                contenidoDiv.appendChild(div);
-            });
-        })
-        .catch(error => { // Captura el error
-            contenidoDiv.innerHTML = `<p style="color:red;">Ay una error, no se visualiza los destinos ${error}</p>`;
-            
-            Swal.fire({
-
-                title: "Alerta, Error de la app ",
-                text:  "Lo sentimos por el incomeniente, estaremos trabajando para solucionarlo",
-                icon: "warning", // icono
-                showCancelButton: true, // nos permite crear un boton de cancelación 
-                cancelButtonText: "Canselar" // nos permite crear un boton de cancelación
-            })
-            
-            console.error("Error capturado, no se visualiza los destinos ",error)
-
-        })
-        .finally(() => {  // Condición que se hace por que si. Condicion que es un hecho  
-            
-            setTimeout(() => { // Retrasa un 1 segundo , y muestra los botones si quieres seguir viendo
-                mostrarOpcionesVisualizacion();
-            }, 10000);
+            contenidoDiv.appendChild(div);
         });
+
+        
+    } catch (error) { // Captura el error
+        contenidoDiv.innerHTML = `<p style="color:red;">Ocurrió un error al cargar destinos: ${error}</p>`;
+        Swal.fire({
+            title: "Alerta, Error de la app ",
+            text:  "Lo sentimos por el incomeniente, estaremos trabajando para solucionarlo",
+            icon: "warning", // icono
+            showCancelButton: true, // nos permite crear un boton de cancelación 
+            cancelButtonText: "Canselar" // nos permite crear un boton de cancelación
+        });
+        console.error("Error capturado:", error);
+
+    } finally {  // Condición que se hace por que si. Condicion que es un hecho 
+        setTimeout(() => {
+            mostrarOpcionesVisualizacion();
+        }, 10000);// Retrasa un 1 segundo , y muestra los botones si quieres seguir viendo
+    }
 }
 
 
