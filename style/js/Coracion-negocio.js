@@ -164,10 +164,23 @@ function accederComoEmpleado() {
   const intento = prompt("🔐 Ingrese el código de acceso de empleado:");
 
   if (intento === codigoEmpleado) {
-    alert("Acceso concedido.");
+
+    Swal.fire({
+      title: "Acceso concedido.",
+      icon: "éxito", // icono
+      showCancelButton: true, // nos permite crear un boton de cancelación      
+    });
+
     document.getElementById("panel-stock").style.display = "block"; 
+
   } else {
-    alert("Código incorrecto. Acceso denegado.");
+
+    Swal.fire({
+      title: "Acceso Denegado",
+      text:  "Código incorrecto.",
+      icon: "advertencia", // icono
+      showCancelButton: true, // nos permite crear un boton de cancelación 
+    });
   }
 }
 
@@ -181,7 +194,12 @@ function mostrarStockTotal() {
     return acc + stock;
   }, 0);
   
-  alert(`Stock total disponible: ${total} unidades`);
+
+  Swal.fire({
+    title: `Stock total disponible: ${total} unidades`,
+    showCancelButton: true, // nos permite crear un boton de cancelación 
+  });
+
 }
 
 function listarStockPorProducto() {
@@ -201,7 +219,13 @@ function buscarProductoPorNombre() {
   // includes se utiliza para verificar si un texto (string) o un elemento de un array contiene cierto valor.
   
   if (resultados.length === 0) {
-    alert(" No se encontró ningún producto con ese nombre.");
+
+
+    Swal.fire({
+      title: " No se encontró ningún producto con ese nombre.",
+      showCancelButton: true, // nos permite crear un boton de cancelación 
+    });
+
     return;
   }
 
@@ -216,7 +240,12 @@ function buscarProductoPorNombre() {
 function mostrarProductosAgotados() {
   const agotados = productos.filter(p => p.stock <= 0); // verifica la cantidad de stock si ay 0
   if (agotados.length === 0) {
-    alert("No hay productos agotados.");
+
+    Swal.fire({
+      title: " No hay productos agotados.",
+      showCancelButton: true, // nos permite crear un boton de cancelación 
+    });
+
     return;
   }
 
@@ -230,7 +259,12 @@ function mostrarStockBajo() {
   const bajos = productos.filter(p => p.stock > 0 && p.stock <= limite);
 
   if (bajos.length === 0) {
-    alert("Todos los productos tienen stock suficiente.");
+
+    Swal.fire({
+      title: "Todos los productos tienen stock suficiente.",
+      showCancelButton: true, // nos permite crear un boton de cancelación 
+    });
+    
     return;
   }
 
@@ -304,7 +338,11 @@ function mostrarStockBajo() {
     }
 
     function cancelar() {
-      alert("Compra cancelada");
+
+      Swal.fire({
+        title: "Compra cancelada",
+        showCancelButton: true, // nos permite crear un boton de cancelación 
+      });
 
       // Restaurar stock
       productosSeleccionados.forEach(seleccionado => {  //forEach recorre Array y ejecuta la función
@@ -352,8 +390,14 @@ function mostrarStockBajo() {
         break;
 
         default:
-          alert("Opción no válida. Se cancela la compra.");
-          return;
+
+          Swal.fire({
+            title: "Opción no válida. Se cancela la compra.",
+            icon: "error", // icono
+            showCancelButton: true, // nos permite crear un boton de cancelación 
+          });
+
+        return;
       }
       
     }
@@ -387,8 +431,12 @@ function mostrarStockBajo() {
       }));
 
 
-      alert(`Pago con tarjeta procesado correctamente.`);
-      alert("Compra finalizada con éxito");
+      Swal.fire({
+        title: "Pago con tarjeta procesado correctamente.",
+        text:  "Compra finalizada con éxito",
+        icon: "éxito", // icono
+        showCancelButton: true, // nos permite crear un boton de cancelación 
+      });
 
       finalizarCompra();
     }
@@ -427,7 +475,12 @@ function mostrarStockBajo() {
           cancelar();
           break;
         default:
-          alert("Por favor, ingrese solo estas opciones:  1.COMPRAR o 2.CALCELAR");
+
+          Swal.fire({
+            title: "Por favor, ingrese solo estas opciones:  1.COMPRAR o 2.CALCELAR",
+            showCancelButton: true, // nos permite crear un boton de cancelación 
+          });
+
           principal(); 
       }
     };

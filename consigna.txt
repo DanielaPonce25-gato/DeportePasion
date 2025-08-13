@@ -1,0 +1,15 @@
+Proyecto Final: Simulador interactivo en JavaScript
+
+Utilizar datos remotos con MOCKAPI o simularlos con JSON y consumirlos con fetch.
+
+Bibliotecas externas.
+
+Funcionalidad y maquetación completa.
+
+Elimina console.log y derivados
+
+Reemplaza alert, prompt, confirm por una biblioteca JS
+
+Github.
+
+Se simula uno o más flujo de trabajo en termino de entrada-procesamiento-salida y no se advierten errores de cómputo.

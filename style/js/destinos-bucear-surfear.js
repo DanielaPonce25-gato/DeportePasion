@@ -1,66 +1,33 @@
-
-// Api local, Nuestra pequeña base de datos de manera local.
-const destinos = [
-    {
-        categoria: "buceo",
-        nombre: "Gran Barrera de Coral - Australia",
-        imagen: "style/imagen/destinos/GranBarreradeCoral.jpg",
-        descripcion: "El arrecife más grande del muosndo. Vida marina increíble.Esta zona ofrece una visibilidad excelente, impresionantes formaciones coralinas y mucha vida marina, incluidos tiburones y tortugas de arrecife. La famosa pared Maravilla Azul cae más de 40 metros en el azul profundo. Maravilla azul es un agujero azul ubicado frente a la costa de Belice, en el mar Caribe.El sitio es famoso entre buceadores por su visibilidad, biodiversidad y características geológicas únicas, incluyendo estalactitas sumergidas."
-    },
-    {
-        categoria: "buceo",
-        nombre: "Isla de Cozumel - México",
-        imagen: "style/imagen/destinos/IsladeCozumel.jpg",
-        descripcion: "Cozumel, un paraíso para los buceadores de scuba en la península de Yucatán, México, forma parte del Sistema Arrecife Mesoamericano, el segundo sistema de arrecifes de coral más grande del mundo. Sus aguas turquesas cristalinas están repletas de una vibrante vida marina, lo que lo convierte en un destino de primera para la exploración submarina. Pero es la diversidad de los arrecifes de Cozumel lo que realmente lo distingue. Cada uno ofrece una experiencia única, desde jardines poco profundos perfectos para principiantes hasta paredes espectaculares que se hunden en el abismo y atraen a buceadores de todos los niveles."
-    },
-    {
-        categoria: "surf",
-        nombre: "Pipeline - Hawái",
-        imagen: "style/imagen/destinos/PipelineHawaii.webp",
-        descripcion: "El Banzai Pipeline, ubicado en la costa norte de Oahu, Hawaii, es sin duda uno de los destinos más icónicos en el mundo del surf. Este lugar es conocido por sus olas potentes y perfectas, lo que lo convierte en una meca para surfistas de todos los niveles, especialmente para los más experimentados. La forma única de su rompiente crea olas huecas y rápidas que a menudo son descritas como las mejores y más desafiantes del planeta."
-    },
-    {
-        categoria: "surf",
-        nombre: "Mundaka - España",
-        imagen: "style/imagen/destinos/MundakaEspaña.jpg",
-        descripcion: "Mundaka, un paraíso, no solo por la calidad de su ola y el surf sino por su mágico pueblo de pescadores. Su ola de izquierdas de clase mundial, rompe en la desembocadura de un río en el País Vasco, España.Conocido por tener una de las olas de izquierda más largas y consistentes del mundo. Está situado en el País Vasco, en la costa norte de España, en la provincia de Vizcaya. La ola de Mundaka es famosa por su forma tubular y la longitud de su recorrido, que puede alcanzar más de 300 metros en buenas condiciones. La ola de izquierda de Mundaka se forma debido a la geografía única de la zona. El río Oka desemboca en el mar en Mundaka, y su desembocadura crea una barra de arena que es esencial para la formación de la ola. Cuando las condiciones son las adecuadas, se produce una de las olas de izquierda más icónicas y desafiantes del mundo, conocida por su tubo largo y rápido."
-    },
-    {
-        categoria: "buceo",
-        nombre: "Galapágos - México",
-        imagen: "style/imagen/destinos/GalapágosMéxico.jpg",
-        descripcion: "Las Islas Galápagos, un archipiélago volcánico ubicado en el Océano Pacífico, son reconocidas mundialmente por su biodiversidad y su papel crucial en la teoría de la evolución de Charles Darwin. Este destino atrae no solo a biólogos y naturalistas, sino también a entusiastas del buceo que buscan explorar sus aguas cristalinas y ricas en vida marina. Bucear en Galápagos es una experiencia que va más allá de la simple observación; es una inmersión en un ecosistema único donde la interacción entre especies es palpable y fascinante. Bucear en estas islas ofrece la oportunidad de nadar con criaturas únicas en el planeta. Desde tiburones martillo hasta tortugas gigantes, cada inmersión es una aventura que promete encuentros inolvidables. La combinación de corrientes oceánicas, formaciones submarinas y una rica biodiversidad convierte a Galápagos en un destino de buceo de clase mundial, que atrae tanto a principiantes como a buceadores experimentados."
-    },
-    {
-        categoria: "buceo",
-        nombre: "Barbados",
-        imagen: "style/imagen/destinos/barbados.avif",
-        descripcion: "Conocida como la capital de los naufragios del Caribe, no es de extrañar que Barbados sea un destino de buceo que capte el interés de los buceadores que buscan algo diferente. Barbados es el hogar de muchas criaturas marinas como tortugas, rayas, rayas águila y caballitos de mar. Puede esperar una visibilidad increíble y aguas cálidas. La bahía de Carlisle no se parece a ningún otro lugar del mundo y alberga seis naufragios que se pueden visitar en una sola inmersión. Estos naufragios se encuentran en aguas tranquilas y claras y son perfectos tanto para principiantes como para buceadores experimentados. Si lo tuyo son los arrecifes, ¡no te preocupes! ¡Barbados también tiene muchos arrecifes hermosos! ¡Hay varios de ellos en la costa sur y oeste que te brindarán un increíble buceo a la deriva! Con una mezcla de arrecifes poco profundos y profundos, en Barbados hay algo para todos."
-    },
-    {
-        categoria: "surf",
-        nombre: "Erciceria - Portugal",
-        imagen: "style/imagen/destinos/Ericeira-Portugal.jpg",
-        descripcion: "Ericeira es una joya costera de Portugal y uno de los destinos más reconocidos para surfistas de todos los niveles en Europa. Esta villa pesquera ofrece una gran variedad de olas que se adaptan tanto a principiantes como a profesionales, además de un ambiente acogedor y una cultura surf vibrante.. Desde la declaración de la región como Reserva Mundial de Surf por la WSL, este lugar ha atraído a surfistas de todos los rincones del mundo. Sus condiciones son ideales durante casi todo el año, lo que convierte a Ericeira en un paraíso para surfistas de diferentes niveles, desde principiantes hasta expertos. "
-    },
-    {
-        categoria: "surf",
-        nombre: "Barlovento",
-        imagen: "style/imagen/destinos/Barlovento.jpg",
-        descripcion: " La costa que está orientada hacia la direción de donde viene el viento, lo que implica condiciones de viento y olas más fuertes y consistentes, ideales para surf"
-    }
-];
+let destinos = []; // Se llenará con fetch
 
 const botonesDiv = document.getElementById("botones");
 const contenidoDiv = document.getElementById("contenido");
 const btnInicio = document.getElementById("btnInicio");
 
+// Carga de JSON
+async function cargarDestinos() {
+    try {
+        const res = await fetch("/style/data/destinos.json");
+        if (!res.ok) throw new Error("Error al cargar el archivo JSON");//si la promesa se cumple, corera el programa
+        destinos = await res.json(); //respuesta (res) a formato json    // si no, mostrara mensaje "Error al cargar el archivo JSON"
+    } catch (error) {
+        
+        Swal.fire({
+            title: "Alerta, Error de la app ",
+            text:  "Lo sentimos por el incomeniente, estaremos trabajando para solucionarlo",
+            icon: "warning", // icono
+            showCancelButton: true, // nos permite crear un boton de cancelación 
+            cancelButtonText: "Canselar" // nos permite crear un boton de cancelación
+        });
 
-/* 
-al escribir return new Promese: ya le estamos avisando a javascrip de que vamos a estar 
-                                en precensia de una promesa.
+        console.error("Error capturado:", error);
+    }
+}
 
-*/
+
+//
+//al escribir return new Promese: ya le estamos avisando a javascrip de que vamos a estar 
+//                                en precensia de una promesa.
 
 
 function obtenerDestinosPorCategoria(categoria) {  // Categoria su parametro. Verifica si existe
@@ -68,31 +35,35 @@ function obtenerDestinosPorCategoria(categoria) {  // Categoria su parametro. Ve
         //busca la categoria selecionada , verifica y devuelve el resultado
         const resultado = destinos.filter(destino => destino.categoria === categoria); 
 
-        setTimeout(() => {                      // mostrar destinos segun por su categoría
+        setTimeout(() => {         // mostrar destinos segun por su categoría
             if (resultado.length > 0) {
-                resolve(resultado);   //si la promesa se resuelve visualiza el resultado
+
+                resolve(resultado);  //si la promesa se resuelve visualiza el resultado
             } else {
-                reject("No se accede a los datos de nuestro arraay")
+                reject("No se accede a los datos de nuestro array");
             }
-        }),1000; // retrasa la promesa 1 segundo
+        }, 1000); // retrasa la promesa 1 segundo
     });
 }
 
 
 
+
 // Mostrar los destinos sugun por su categoría
+
 
 async function mostrarDestinosPorCategoria(categoria) {  // envocamos la promesa 
     contenidoDiv.innerHTML = '<p style="font-size: 30px;">Cargando destinos...</p>';
 
+    try {
 
-     try {   // si se cumple, muestra la categoria selecionada
+        // si se cumple, muestra la categoria selecionada
         const filtrados = await obtenerDestinosPorCategoria(categoria);
         contenidoDiv.innerHTML = "";
 
         filtrados.forEach(destino => {  // Proceso de visualización  
 
-            const div = document.createElement("div"); // Genera un container donde va a estar alojado los destinos
+            const div = document.createElement("div");  // Genera un container donde va a estar alojado los destinos
             div.className = "destino";
 
             const titulo = document.createElement("h2");
@@ -112,22 +83,21 @@ async function mostrarDestinosPorCategoria(categoria) {  // envocamos la promesa
             contenidoDiv.appendChild(div);
         });
 
-        
-    } catch (error) { // Captura el error
+    } catch (error) {  // Captura el error
         contenidoDiv.innerHTML = `<p style="color:red;">Ocurrió un error al cargar destinos: ${error}</p>`;
         Swal.fire({
-            title: "Alerta, Error de la app ",
-            text:  "Lo sentimos por el incomeniente, estaremos trabajando para solucionarlo",
-            icon: "warning", // icono
+            title: "Alerta, Error de la app",
+            text: "Lo sentimos por el inconveniente, estaremos trabajando para solucionarlo",
+            icon: "warning",  // icono
             showCancelButton: true, // nos permite crear un boton de cancelación 
             cancelButtonText: "Canselar" // nos permite crear un boton de cancelación
         });
         console.error("Error capturado:", error);
 
-    } finally {  // Condición que se hace por que si. Condicion que es un hecho 
+    } finally { // Condición que se hace por que si. Condicion que es un hecho 
         setTimeout(() => {
             mostrarOpcionesVisualizacion();
-        }, 10000);// Retrasa un 1 segundo , y muestra los botones si quieres seguir viendo
+        }, 10000); // Retrasa un 1 segundo , y muestra los botones si quieres seguir viendo
     }
 }
 
@@ -141,13 +111,13 @@ function mostrarOpcionesVisualizacion() {
     const texto = document.createElement("p");
     texto.textContent = "¿Quieres seguir mirando o volver al inicio?";
 
-    const btnSeguir = document.createElement("button");  // Crea el boton seguir
-    btnSeguir.textContent = "Seguir";
+    const btnSeguir = document.createElement("button"); // Crea el boton seguir
+    btnSeguir.textContent = "Seguir"; 
     btnSeguir.onclick = () => {  // Si haces click , el mensaje se va y sigues visualisando destinos
         mensajeDiv.remove();
     };
 
-    const btnVolver = document.createElement("button");  // Crea el boton Volver
+    const btnVolver = document.createElement("button"); // Crea el boton Volver
     btnVolver.textContent = "Volver al inicio";
     btnVolver.onclick = () => { // Si haces click , te yeba al inicio. 
         reiniciarAplicacion();
@@ -159,6 +129,7 @@ function mostrarOpcionesVisualizacion() {
 
     contenidoDiv.appendChild(mensajeDiv);
 }
+
 
 
 // Vuelve al estado inicial
@@ -173,7 +144,6 @@ function reiniciarAplicacion() {
     nuevoInicio.addEventListener("click", iniciarApp);
     botonesDiv.appendChild(nuevoInicio);
 }
-
 
 
 // Inicia la app
@@ -194,5 +164,10 @@ function iniciarApp() {
     botonesDiv.appendChild(btnSurf);
 }
 
-// Donde empiesa todo .....
+
+// Donde empieza todo .....
 btnInicio.addEventListener("click", iniciarApp);
+
+
+//carga el JSON antes de iniciar
+cargarDestinos();
